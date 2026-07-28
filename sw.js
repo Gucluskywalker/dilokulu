@@ -1,7 +1,7 @@
 /* Deutsch, wieder… — Service Worker
    Kabuk önceden önbelleğe alınır; içerik ve medya kullanıldıkça saklanır. */
 
-const VERSION = 'dw-v1.1.0';
+const VERSION = 'dw-v2.0.0';
 const SHELL = VERSION + '-shell';
 const DATA  = VERSION + '-data';
 const MEDIA = VERSION + '-media';
@@ -12,6 +12,7 @@ const SHELL_FILES = [
   './app.css',
   './app.js',
   './manifest.webmanifest',
+  './config.js',
   './content/catalog.json',
   './icons/icon-192.png',
   './icons/icon-512.png',
@@ -46,6 +47,9 @@ function bucketFor(url) {
 self.addEventListener('fetch', e => {
   const req = e.request;
   if (req.method !== 'GET') return;
+
+  // /api/ istekleri (giriş & senkron): önbelleğe alma, her zaman ağa git
+  if (/\/api\//.test(new URL(req.url).pathname)) return;
 
   const url = new URL(req.url);
   const sameOrigin = url.origin === self.location.origin;
