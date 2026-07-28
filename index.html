@@ -35,6 +35,23 @@
 </header>
 
 <div class="scrim" id="scrim"></div>
+
+<!-- ══════════ GİRİŞ ══════════ -->
+<main class="screen" id="authScreen">
+  <div class="auth">
+    <h1>Deutsch, <em>wieder…</em></h1>
+    <p class="lede">Adınızı ve 4 haneli bir PIN girin. İlk kez giriyorsanız profiliniz otomatik oluşturulur.</p>
+    <form id="authForm">
+      <label>Ad<input type="text" id="authName" autocomplete="name" required maxlength="40" placeholder="Örn. Güçlü"></label>
+      <label>4 haneli PIN<input type="password" id="authPin" inputmode="numeric" pattern="[0-9]{4}" maxlength="4" required placeholder="••••"></label>
+      <p class="hint">Bu bir şifre değil, sadece profilinizi ayırt eder — gerçek şifrenizi kullanmayın.</p>
+      <button type="submit" class="btn pri wide" id="authSubmit">Devam et</button>
+      <div class="autherr" id="authErr" hidden></div>
+    </form>
+    <button class="tinybtn" id="authSkip">Sunucusuz devam et</button>
+  </div>
+</main>
+
 <nav class="toc" id="toc"></nav>
 
 <!-- ══════════ HOME ══════════ -->
@@ -53,8 +70,10 @@
     <div class="units" id="unitGrid"></div>
 
     <div class="homefoot">
+      <span class="userbadge" id="userBadge" hidden></span>
       <button class="tinybtn" id="resetBtn">İlerlemeyi sıfırla</button>
       <button class="tinybtn" id="aboutBtn">Hakkında</button>
+      <button class="tinybtn" id="logoutBtn" hidden>Çıkış</button>
       <span class="ver" id="verLabel"></span>
     </div>
   </div>
@@ -76,6 +95,7 @@
 
 <div class="toast" id="toast"></div>
 
+<script src="config.js"></script>
 <script src="app.js"></script>
 </body>
 </html>
