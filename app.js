@@ -51,6 +51,71 @@ function setUnitState(id, patch) {
   s.units = s.units || {};
   s.units[id] = Object.assign(unitState(id), patch);
   save(s);
+  schedulePush();
+}
+
+/* ---------------- Hesap: ad + 4 haneli PIN (Cloudflare Worker) ---------------- */
+var API_BASE = 'https://dilokulu-auth.bb2p4y7wds.workers.dev';
+var ACCOUNT_KEY = 'ywdl.account';
+function getAccount() {
+  try { return JSON.parse(localStorage.getItem(ACCOUNT_KEY)) || null; } catch (e) { return null; }
+}
+function setAccount(acc) {
+  try { localStorage.setItem(ACCOUNT_KEY, JSON.stringify(acc)); } catch (e) {}
+}
+function clearAccount() {
+  try { localStorage.removeItem(ACCOUNT_KEY); } catch (e) {}
+}
+
+function mergeUnits(incoming) {
+  if (!incoming || typeof incoming !== 'object') return 0;
+  var s = load(); s.units = s.units || {}; var n = 0;
+  Object.keys(incoming).forEach(function (id) {
+    var a = s.units[id] || { page: 0, seen: [], score: null, total: null, done: false };
+    var b = incoming[id] || {};
+    var seen = (a.seen || []).slice();
+    (b.seen || []).forEach(function (x) { if (seen.indexOf(x) === -1) seen.push(x); });
+    var better = (b.score != null && (a.score == null || b.score > a.score));
+    s.units[id] = {
+      page: Math.max(a.page || 0, b.page || 0),
+      seen: seen,
+      score: better ? b.score : a.score,
+      total: better ? b.total : a.total,
+      done: !!(a.done || b.done)
+    };
+    n++;
+  });
+  save(s); return n;
+}
+
+var pushTimer = null;
+function schedulePush() {
+  clearTimeout(pushTimer);
+  pushTimer = setTimeout(pushProgress, 1200);
+}
+function pushProgress() {
+  var acc = getAccount();
+  if (!acc) return;
+  var s = load();
+  fetch(API_BASE + '/progress', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ name: acc.name, pin: acc.pin, progress: s.units || {} })
+  }).catch(function () {});
+}
+function pullAndMerge(acc) {
+  return fetch(API_BASE + '/progress?name=' + encodeURIComponent(acc.name) + '&pin=' + encodeURIComponent(acc.pin))
+    .then(function (r) { return r.json(); })
+    .then(function (d) { if (d && d.ok) mergeUnits(d.progress); return d; })
+    .catch(function () { return { ok: false, offline: true }; });
+}
+function apiAuth(name, pin) {
+  return fetch(API_BASE + '/auth', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ name: name, pin: pin })
+  }).then(function (r) { return r.json().then(function (d) { d._status = r.status; return d; }); })
+    .catch(function () { return { ok: false, offline: true }; });
 }
 
 /* ---------------- Hilfsmittel ---------------- */
@@ -402,22 +467,7 @@ function renderHome() {
   $('#prog').style.width = '0';
   $('#verLabel').textContent = 'v' + CATALOG.app.version;
 
-  // Sprachreiter
-  var tabs = $('#langTabs'); tabs.innerHTML = '';
-  CATALOG.languages.forEach(function (l) {
-    var b = el('button', 'langtab' + (l === LANG ? ' on' : ''));
-    b.innerHTML = '<span>' + esc(l.name) + '</span><span class="tr">' + esc(l.tr) + '</span>';
-    b.onclick = function () { LANG = l; LEVEL = l.levels[0]; renderHome(); };
-    tabs.appendChild(b);
-  });
-  ['English', 'Español', 'Français'].forEach(function (n) {
-    var b = el('button', 'langtab soon');
-    b.innerHTML = '<span>' + n + '</span><span class="tr">yakında</span>';
-    tabs.appendChild(b);
-  });
-  $('#langNote').textContent = 'Yeni diller aynı uygulamaya eklenecek';
-
-  $('#levelTitle').textContent = LEVEL.name + ' · ' + LEVEL.tr;
+  $('#levelTitle').textContent = LANG.name + ' ' + LEVEL.name + ' · ' + LEVEL.tr;
   $('#levelNote').textContent = LEVEL.units.length + ' ünite';
 
   // Einheiten
@@ -567,68 +617,105 @@ document.addEventListener('keydown', function (e) {
 
 $('#resetBtn').onclick = function () {
   if (!confirm('Tüm ilerleme silinecek. Emin misiniz?')) return;
-  save({}); renderHome(); toast('İlerleme sıfırlandı');
-};
-/* ---------------- Geräte-Abgleich ---------------- */
-function progressCode() {
-  var s = load();
-  try { return btoa(unescape(encodeURIComponent(JSON.stringify(s.units || {})))); }
-  catch (e) { return ''; }
-}
-function applyCode(code) {
-  var raw, incoming;
-  try { raw = decodeURIComponent(escape(atob((code || '').replace(/\s+/g, '')))); } catch (e) { return 0; }
-  try { incoming = JSON.parse(raw); } catch (e) { return 0; }
-  if (!incoming || typeof incoming !== 'object') return 0;
-
-  var s = load(); s.units = s.units || {}; var n = 0;
-  Object.keys(incoming).forEach(function (id) {
-    var a = s.units[id] || { page: 0, seen: [], score: null, total: null, done: false };
-    var b = incoming[id] || {};
-    var seen = (a.seen || []).slice();
-    (b.seen || []).forEach(function (x) { if (seen.indexOf(x) === -1) seen.push(x); });
-    var better = (b.score != null && (a.score == null || b.score > a.score));
-    s.units[id] = {
-      page: Math.max(a.page || 0, b.page || 0),
-      seen: seen,
-      score: better ? b.score : a.score,
-      total: better ? b.total : a.total,
-      done: !!(a.done || b.done)
-    };
-    n++;
-  });
-  save(s); return n;
-}
-function openSync() {
-  $('#syncOut').value = progressCode();
-  $('#syncIn').value = '';
-  $('#syncModal').classList.add('on');
-  $('#syncScrim').classList.add('on');
-}
-function closeSync() {
-  $('#syncModal').classList.remove('on');
-  $('#syncScrim').classList.remove('on');
-}
-$('#syncBtn').onclick = openSync;
-$('#syncClose').onclick = closeSync;
-$('#syncScrim').onclick = closeSync;
-$('#syncCopy').onclick = function () {
-  var t = $('#syncOut');
-  t.select(); t.setSelectionRange(0, 99999);
-  var ok = false;
-  try { ok = document.execCommand('copy'); } catch (e) {}
-  if (navigator.clipboard) navigator.clipboard.writeText(t.value).then(function () {}, function () {});
-  toast(ok || navigator.clipboard ? 'Kod kopyalandı' : 'Kodu elle seçip kopyalayın');
-};
-$('#syncApply').onclick = function () {
-  var n = applyCode($('#syncIn').value);
-  if (!n) { toast('Kod okunamadı — tamamını yapıştırdığınızdan emin olun'); return; }
-  closeSync(); renderHome();
-  toast(n + ' ünitenin ilerlemesi birleştirildi');
+  save({}); renderHome(); toast('İlerleme sıfırlandı'); schedulePush();
 };
 
 $('#aboutBtn').onclick = function () {
   toast(CATALOG.app.name + ' · Vorwärts ruhundan ilhamla, kişisel kullanım için');
+};
+
+/* ---------------- Ekran geçişleri ---------------- */
+function showScreen(id) {
+  $$('.screen').forEach(function (s) { s.classList.remove('on'); });
+  $('#' + id).classList.add('on');
+  $('#botnav').classList.toggle('on', id === 'readerScreen');
+  $('#pill').hidden = (id !== 'readerScreen');
+  window.scrollTo(0, 0);
+}
+
+/* ---------------- Hub (Almanca / İngilizce / Diğer) ---------------- */
+function langByCode(code) {
+  var found = null;
+  CATALOG.languages.forEach(function (l) { if (l.code === code) found = l; });
+  return found;
+}
+function renderHub() {
+  var acc = getAccount();
+  $('#hubName').textContent = acc ? acc.name : '';
+  $('#verLabelHub').textContent = 'v' + CATALOG.app.version;
+}
+$('#hubDe').onclick = function () {
+  var l = langByCode('de'); if (!l) return;
+  LANG = l; LEVEL = l.levels[0]; renderLevels(); showScreen('levelScreen');
+};
+$('#hubEn').onclick = function () {
+  var l = langByCode('en'); if (!l) return;
+  LANG = l; LEVEL = l.levels[0]; renderLevels(); showScreen('levelScreen');
+};
+$('#toHubBtn').onclick = function () { renderHub(); showScreen('hubScreen'); };
+$('#toHubBtn2').onclick = function () { renderHub(); showScreen('hubScreen'); };
+
+/* ---------------- Seviye seçimi (A1 aktif, A2/B1/B2 çok yakında) ---------------- */
+var CEFR = ['A1', 'A2', 'B1', 'B2'];
+function renderLevels() {
+  $('#levelHeadTitle').textContent = esc(LANG.name);
+  var grid = $('#levelGrid'); grid.innerHTML = '';
+  CEFR.forEach(function (code) {
+    var lv = null;
+    LANG.levels.forEach(function (l) { if ((l.name || '').toUpperCase().indexOf(code) === 0) lv = l; });
+    var c = el('div', 'hubcard' + (lv ? ' active' : ' disabled'));
+    c.innerHTML = '<h3>' + code + '</h3><div class="sub">' + (lv ? (lv.units.length + ' ünite') : 'çok yakında') + '</div>';
+    if (lv) {
+      c.onclick = function () { LEVEL = lv; renderHome(); showScreen('homeScreen'); };
+    }
+    grid.appendChild(c);
+  });
+}
+
+/* ---------------- Giriş (ad + PIN) ---------------- */
+function loginStart() {
+  var acc = getAccount();
+  if (!acc) { showScreen('loginScreen'); return; }
+  apiAuth(acc.name, acc.pin).then(function (d) {
+    if (d && d.ok) {
+      pullAndMerge(acc).then(function () { renderHub(); showScreen('hubScreen'); });
+    } else if (d && d.error === 'pin_mismatch') {
+      clearAccount(); toast('Oturum bilgisi geçersiz, yeniden giriş yapın'); showScreen('loginScreen');
+    } else {
+      // sunucuya ulaşılamadı — çevrimdışı devam et
+      renderHub(); showScreen('hubScreen');
+      toast('Çevrimdışı mod: ilerleme bu cihazda saklanıyor');
+    }
+  });
+}
+$('#loginBtn').onclick = function () {
+  var name = $('#loginName').value.trim();
+  var pin = $('#loginPin').value.trim();
+  if (!name) { $('#loginMsg').textContent = 'Lütfen bir kullanıcı adı yazın.'; return; }
+  if (!/^\d{4}$/.test(pin)) { $('#loginMsg').textContent = '4 haneli rakamdan oluşan bir PIN girin.'; return; }
+  $('#loginBtn').disabled = true; $('#loginMsg').textContent = 'Bağlanıyor…';
+  apiAuth(name, pin).then(function (d) {
+    $('#loginBtn').disabled = false;
+    if (d && d.ok) {
+      setAccount({ name: name, pin: pin });
+      pullAndMerge({ name: name, pin: pin }).then(function () {
+        renderHub(); showScreen('hubScreen');
+      });
+    } else if (d && d.error === 'pin_mismatch') {
+      $('#loginMsg').textContent = 'Bu kullanıcı adı için PIN yanlış. Tekrar deneyin.';
+    } else {
+      // sunucuya ulaşılamadı — yine de bu cihazda devam et
+      setAccount({ name: name, pin: pin });
+      renderHub(); showScreen('hubScreen');
+      toast('Çevrimdışı mod: ilerleme bu cihazda saklanıyor');
+    }
+  });
+};
+$('#logoutBtn').onclick = function () {
+  clearAccount();
+  $('#loginName').value = ''; $('#loginPin').value = '';
+  $('#loginMsg').textContent = 'Yeni bir isimse hesap otomatik oluşturulur; var olan isimse aynı PIN ile giriş yapılır.';
+  showScreen('loginScreen');
 };
 
 /* ---------------- Start ---------------- */
@@ -647,7 +734,6 @@ function boot() {
     });
     return Promise.all(jobs);
   }).then(function () {
-    renderHome();
     var h = (location.hash || '').replace('#', '');
     if (h) {
       var found = null;
@@ -656,10 +742,18 @@ function boot() {
           lv.units.forEach(function (u) { if (u._meta.id === h) { found = u; LANG = l; LEVEL = lv; } });
         });
       });
-      if (found) openUnit(found);
+      if (found) {
+        renderHome();
+        showScreen('homeScreen');
+        var acc = getAccount();
+        if (acc) apiAuth(acc.name, acc.pin).then(function (d) { if (d && d.ok) pullAndMerge(acc); });
+        openUnit(found);
+        return;
+      }
     }
+    loginStart();
   }).catch(function (err) {
-    document.querySelector('.home').innerHTML =
+    document.querySelector('#loginScreen .home').innerHTML =
       '<div class="sheet"><h2>Uygulama yüklenemedi</h2>' +
       '<p class="lede">İçerik kataloğuna ulaşılamadı.</p>' +
       '<p class="lede">Bu uygulamanın bir web sunucusundan açılması gerekir — dosyaya çift tıklayarak değil. ' +

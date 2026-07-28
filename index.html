@@ -37,8 +37,68 @@
 <div class="scrim" id="scrim"></div>
 <nav class="toc" id="toc"></nav>
 
-<!-- ══════════ HOME ══════════ -->
-<main class="screen on" id="homeScreen">
+<!-- ══════════ LOGIN ══════════ -->
+<main class="screen on" id="loginScreen">
+  <div class="home">
+    <div class="hero">
+      <h1>Yes We Do <em>Learning</em></h1>
+      <p>Yes We Do Learning Modülüne hoş geldiniz</p>
+    </div>
+    <div class="loginbox">
+      <label class="modal-l">Kullanıcı adınız</label>
+      <input class="fw" id="loginName" type="text" placeholder="Ör. Güçlü" autocomplete="username" maxlength="40">
+      <label class="modal-l" style="margin-top:14px">4 rakamdan oluşan PIN'inizi oluşturunuz</label>
+      <input class="fw" id="loginPin" type="tel" inputmode="numeric" pattern="\d{4}" maxlength="4" placeholder="••••" autocomplete="current-password">
+      <p class="modal-h" id="loginMsg">Yeni bir isimse hesap otomatik oluşturulur; var olan isimse aynı PIN ile giriş yapılır.</p>
+      <button class="btn pri" id="loginBtn" style="width:100%;margin-top:6px">Devam Et</button>
+    </div>
+  </div>
+</main>
+
+<!-- ══════════ HUB (konu seçimi) ══════════ -->
+<main class="screen" id="hubScreen">
+  <div class="home">
+    <div class="hero">
+      <h1>Merhaba, <em id="hubName">!</em></h1>
+      <p>Ne öğrenmek istersin?</p>
+    </div>
+    <div class="hubgrid">
+      <div class="hubcard" id="hubDe">
+        <h3>Almanca Eğitim</h3>
+        <div class="sub">A1 seviyesiyle başla</div>
+      </div>
+      <div class="hubcard" id="hubEn">
+        <h3>İngilizce Eğitim</h3>
+        <div class="sub">A1 seviyesiyle başla</div>
+      </div>
+      <div class="hubcard soon">
+        <h3>Diğer Eğitim Modülleri</h3>
+        <div class="sub">pek yakında</div>
+      </div>
+    </div>
+    <div class="homefoot">
+      <button class="tinybtn" id="logoutBtn">Çıkış</button>
+      <span class="ver" id="verLabelHub"></span>
+    </div>
+  </div>
+</main>
+
+<!-- ══════════ LEVEL (seviye seçimi) ══════════ -->
+<main class="screen" id="levelScreen">
+  <div class="home">
+    <div class="hero">
+      <h1 id="levelHeadTitle">Almanca</h1>
+      <p>Bir seviye seç</p>
+    </div>
+    <div class="hubgrid" id="levelGrid"></div>
+    <div class="homefoot">
+      <button class="tinybtn" id="toHubBtn2">◂ Ana menü</button>
+    </div>
+  </div>
+</main>
+
+<!-- ══════════ HOME (ünite listesi) ══════════ -->
+<main class="screen" id="homeScreen">
   <div class="home">
     <div class="hero">
       <h1>Yes We Do <em>Learning</em></h1>
@@ -46,15 +106,12 @@
       <div class="stat" id="heroStats"></div>
     </div>
 
-    <div class="sect-h"><h2>Diller</h2><span id="langNote"></span></div>
-    <div class="langtabs" id="langTabs"></div>
-
     <div class="sect-h"><h2 id="levelTitle">A1 · Başlangıç</h2><span id="levelNote"></span></div>
     <div class="units" id="unitGrid"></div>
 
     <div class="homefoot">
+      <button class="tinybtn" id="toHubBtn">◂ Ana menü</button>
       <button class="tinybtn" id="resetBtn">İlerlemeyi sıfırla</button>
-      <button class="tinybtn" id="syncBtn">Cihazlar arası aktar</button>
       <button class="tinybtn" id="aboutBtn">Hakkında</button>
       <span class="ver" id="verLabel"></span>
     </div>
@@ -74,26 +131,6 @@
     <button class="nav pri" id="nextBtn">Next <svg viewBox="0 0 24 24"><path d="M9 18l6-6-6-6"/></svg></button>
   </div>
 </nav>
-
-<div class="scrim" id="syncScrim"></div>
-<div class="modal" id="syncModal">
-  <div class="modal-in">
-    <h3>Cihazlar arası aktarma</h3>
-    <p class="modal-p">Sunucu yok, hesap yok. İlerlemeyi kodla taşıyorsunuz.
-    İki taraf birleşir — en ileri sayfa ve en yüksek test puanı korunur.</p>
-
-    <label class="modal-l">1 · Bu cihazın kodu</label>
-    <textarea id="syncOut" class="modal-t" readonly></textarea>
-    <button class="btn pri" id="syncCopy">Kodu kopyala</button>
-    <p class="modal-h">Kopyalayıp kendinize mesaj veya not olarak gönderin.</p>
-
-    <label class="modal-l">2 · Diğer cihazdan gelen kod</label>
-    <textarea id="syncIn" class="modal-t" placeholder="Kodu buraya yapıştırın"></textarea>
-    <button class="btn pri" id="syncApply">Aktar</button>
-
-    <button class="btn sec" id="syncClose" style="width:100%;margin-top:14px">Kapat</button>
-  </div>
-</div>
 
 <div class="toast" id="toast"></div>
 
