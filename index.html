@@ -6,10 +6,10 @@
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="default">
-<meta name="apple-mobile-web-app-title" content="Deutsch">
+<meta name="apple-mobile-web-app-title" content="YWDL">
 <meta name="theme-color" content="#FAF6EF">
-<meta name="description" content="Deutsch, wieder… — kişiselleştirilmiş dil eğitimi">
-<title>Deutsch, wieder…</title>
+<meta name="description" content="Yes We Do Learning — kişiselleştirilmiş eğitim serisi">
+<title>Yes We Do Learning</title>
 
 <link rel="manifest" href="manifest.webmanifest">
 <link rel="apple-touch-icon" href="icons/apple-touch-icon.png">
@@ -27,7 +27,7 @@
     <button class="iconbtn" id="menuBtn" aria-label="Menü">
       <svg viewBox="0 0 24 24"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
     </button>
-    <div class="brandmark">Deutsch, <span>wieder…</span></div>
+    <div class="brandmark">Yes We Do <span>Learning</span></div>
     <div class="spacer"></div>
     <div class="pagepill" id="pill" hidden></div>
   </div>
@@ -35,31 +35,14 @@
 </header>
 
 <div class="scrim" id="scrim"></div>
-
-<!-- ══════════ GİRİŞ ══════════ -->
-<main class="screen" id="authScreen">
-  <div class="auth">
-    <h1>Deutsch, <em>wieder…</em></h1>
-    <p class="lede">Adınızı ve 4 haneli bir PIN girin. İlk kez giriyorsanız profiliniz otomatik oluşturulur.</p>
-    <form id="authForm">
-      <label>Ad<input type="text" id="authName" autocomplete="name" required maxlength="40" placeholder="Örn. Güçlü"></label>
-      <label>4 haneli PIN<input type="password" id="authPin" inputmode="numeric" pattern="[0-9]{4}" maxlength="4" required placeholder="••••"></label>
-      <p class="hint">Bu bir şifre değil, sadece profilinizi ayırt eder — gerçek şifrenizi kullanmayın.</p>
-      <button type="submit" class="btn pri wide" id="authSubmit">Devam et</button>
-      <div class="autherr" id="authErr" hidden></div>
-    </form>
-    <button class="tinybtn" id="authSkip">Sunucusuz devam et</button>
-  </div>
-</main>
-
 <nav class="toc" id="toc"></nav>
 
 <!-- ══════════ HOME ══════════ -->
 <main class="screen on" id="homeScreen">
   <div class="home">
     <div class="hero">
-      <h1>Deutsch, <em>wieder…</em></h1>
-      <p id="heroSub">Unutulmuş Almancayı yeniden aktive eden kişisel eğitim serisi.</p>
+      <h1>Yes We Do <em>Learning</em></h1>
+      <p id="heroSub">Yes We Do Learning Modülüne hoş geldiniz</p>
       <div class="stat" id="heroStats"></div>
     </div>
 
@@ -70,10 +53,9 @@
     <div class="units" id="unitGrid"></div>
 
     <div class="homefoot">
-      <span class="userbadge" id="userBadge" hidden></span>
       <button class="tinybtn" id="resetBtn">İlerlemeyi sıfırla</button>
+      <button class="tinybtn" id="syncBtn">Cihazlar arası aktar</button>
       <button class="tinybtn" id="aboutBtn">Hakkında</button>
-      <button class="tinybtn" id="logoutBtn" hidden>Çıkış</button>
       <span class="ver" id="verLabel"></span>
     </div>
   </div>
@@ -88,15 +70,33 @@
 
 <nav class="botnav" id="botnav">
   <div class="botnav-in">
-    <button class="nav" id="prevBtn"><svg viewBox="0 0 24 24"><path d="M15 18l-6-6 6-6"/></svg> Zurück</button>
-    <button class="nav pri" id="nextBtn">Weiter <svg viewBox="0 0 24 24"><path d="M9 18l6-6-6-6"/></svg></button>
+    <button class="nav" id="prevBtn"><svg viewBox="0 0 24 24"><path d="M15 18l-6-6 6-6"/></svg> Back</button>
+    <button class="nav pri" id="nextBtn">Next <svg viewBox="0 0 24 24"><path d="M9 18l6-6-6-6"/></svg></button>
   </div>
 </nav>
 
+<div class="scrim" id="syncScrim"></div>
+<div class="modal" id="syncModal">
+  <div class="modal-in">
+    <h3>Cihazlar arası aktarma</h3>
+    <p class="modal-p">Sunucu yok, hesap yok. İlerlemeyi kodla taşıyorsunuz.
+    İki taraf birleşir — en ileri sayfa ve en yüksek test puanı korunur.</p>
+
+    <label class="modal-l">1 · Bu cihazın kodu</label>
+    <textarea id="syncOut" class="modal-t" readonly></textarea>
+    <button class="btn pri" id="syncCopy">Kodu kopyala</button>
+    <p class="modal-h">Kopyalayıp kendinize mesaj veya not olarak gönderin.</p>
+
+    <label class="modal-l">2 · Diğer cihazdan gelen kod</label>
+    <textarea id="syncIn" class="modal-t" placeholder="Kodu buraya yapıştırın"></textarea>
+    <button class="btn pri" id="syncApply">Aktar</button>
+
+    <button class="btn sec" id="syncClose" style="width:100%;margin-top:14px">Kapat</button>
+  </div>
+</div>
+
 <div class="toast" id="toast"></div>
 
-<script src="config.js"></script>
 <script src="app.js"></script>
 </body>
 </html>
-

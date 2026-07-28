@@ -1,15 +1,11 @@
 /* ==========================================================
-   Deutsch, wieder…  ·  App-Engine
+   Yes We Do Learning (YWDL)  ·  App-Engine
    Tek iskelet, çok dil, çok seviye. İçerik content/ altında.
    ========================================================== */
 (function () {
 'use strict';
 
 var STORE = 'dw.v1';
-var AUTH_STORE = 'dw.auth';
-var GUEST_STORE = 'dw.guest';
-var pushTimer = null;
-var pushQueued = false;
 var CATALOG = null;
 var LANG = null;      // aktif dil nesnesi
 var LEVEL = null;     // aktif seviye nesnesi
@@ -17,6 +13,27 @@ var UNIT = null;      // yüklü ünite meta
 var PAGES = [];       // aktif ünite sayfaları (DOM)
 var CUR = 0;
 var AUDIOS = [];
+
+/* ---------------- Arayüz metinleri (dile göre) ---------------- */
+var UI_STR = {
+  de: {
+    unit: 'Einheit', back: 'Zurück', next: 'Weiter', toOverview: 'Zur Übersicht',
+    notChecked: 'Noch nicht geprüft', notCheckedSub: 'Alıştırmaları çözün, sonra “Prüfen”e basın.',
+    excellent: 'Ausgezeichnet! 🎉', excellentSub: 'Bir sonraki üniteye geçebilirsiniz.',
+    veryGood: 'Sehr gut!', veryGoodSub: 'Birkaç noktayı tekrar edin, sonra devam edin.',
+    good: 'Gut gemacht.', goodSub: 'Gramer sayfalarını bir kez daha okuyun.',
+    keepPracticing: 'Weiter üben!', keepPracticingSub: 'Üniteyi baştan gözden geçirmeniz faydalı olur.'
+  },
+  en: {
+    unit: 'Unit', back: 'Back', next: 'Next', toOverview: 'Back to overview',
+    notChecked: 'Not checked yet', notCheckedSub: 'Alıştırmaları çözün, sonra “Check”e basın.',
+    excellent: 'Excellent! 🎉', excellentSub: 'Bir sonraki üniteye geçebilirsiniz.',
+    veryGood: 'Very good!', veryGoodSub: 'Birkaç noktayı tekrar edin, sonra devam edin.',
+    good: 'Well done.', goodSub: 'Gramer sayfalarını bir kez daha okuyun.',
+    keepPracticing: 'Keep practising!', keepPracticingSub: 'Üniteyi baştan gözden geçirmeniz faydalı olur.'
+  }
+};
+function uiStr(k) { return (UI_STR[LANG && LANG.code] || UI_STR.en)[k]; }
 
 /* ---------------- Speicher ---------------- */
 function load() {
@@ -34,101 +51,6 @@ function setUnitState(id, patch) {
   s.units = s.units || {};
   s.units[id] = Object.assign(unitState(id), patch);
   save(s);
-  schedulePush();
-}
-
-/* ---------------- Giriş & senkron ---------------- */
-function authLoad() {
-  try { return JSON.parse(localStorage.getItem(AUTH_STORE)) || null; } catch (e) { return null; }
-}
-function authSave(a) { try { localStorage.setItem(AUTH_STORE, JSON.stringify(a)); } catch (e) {} }
-function authClear() { try { localStorage.removeItem(AUTH_STORE); } catch (e) {} }
-function isGuest() { return localStorage.getItem(GUEST_STORE) === '1'; }
-function setGuest() { try { localStorage.setItem(GUEST_STORE, '1'); } catch (e) {} }
-function apiBase() { return (window.DW_API || '').replace(/\/+$/, ''); }
-
-function mergeUnitsClient(a, b) {
-  a = a || {}; b = b || {};
-  var out = {};
-  var ids = {};
-  Object.keys(a).forEach(function (k) { ids[k] = 1; });
-  Object.keys(b).forEach(function (k) { ids[k] = 1; });
-  Object.keys(ids).forEach(function (id) {
-    var x = a[id] || {}, y = b[id] || {};
-    var seenSet = {};
-    (x.seen || []).concat(y.seen || []).forEach(function (p) { seenSet[p] = 1; });
-    var seen = Object.keys(seenSet).map(Number);
-    var xHas = x.score != null, yHas = y.score != null;
-    var score = null, total = null;
-    if (xHas && yHas) { if (x.score >= y.score) { score = x.score; total = x.total; } else { score = y.score; total = y.total; } }
-    else if (xHas) { score = x.score; total = x.total; }
-    else if (yHas) { score = y.score; total = y.total; }
-    out[id] = { page: Math.max(x.page || 0, y.page || 0), seen: seen, score: score, total: total, done: !!(x.done || y.done) };
-  });
-  return out;
-}
-
-function pull() {
-  var auth = authLoad();
-  if (!auth || !apiBase()) return Promise.resolve();
-  return fetch(apiBase() + '/api/progress', { headers: { 'Authorization': 'Bearer ' + auth.token } })
-    .then(function (r) { if (!r.ok) throw new Error(r.status); return r.json(); })
-    .then(function (data) {
-      var s = load();
-      s.units = mergeUnitsClient(s.units || {}, data.units || {});
-      save(s);
-    })
-    .catch(function () {});
-}
-
-function push() {
-  var auth = authLoad();
-  if (!auth || !apiBase()) return;
-  var s = load();
-  fetch(apiBase() + '/api/progress', {
-    method: 'PUT',
-    headers: { 'Content-Type': 'application/json', 'Authorization': 'Bearer ' + auth.token },
-    body: JSON.stringify({ units: s.units || {} }),
-  }).then(function (r) {
-    if (!r.ok) throw new Error(r.status);
-    return r.json();
-  }).then(function (data) {
-    pushQueued = false;
-    var s2 = load();
-    s2.units = mergeUnitsClient(s2.units || {}, data.units || {});
-    save(s2);
-  }).catch(function () { pushQueued = true; });
-}
-
-function schedulePush() {
-  if (!authLoad() || !apiBase()) return;
-  clearTimeout(pushTimer);
-  pushTimer = setTimeout(push, 3000);
-}
-
-window.addEventListener('online', function () { if (pushQueued) push(); });
-
-function login(name, pin) {
-  return fetch(apiBase() + '/api/login', {
-    method: 'POST',
-    headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify({ name: name, pin: pin }),
-  }).then(function (r) {
-    return r.json().then(function (data) { return { ok: r.ok, data: data }; });
-  }).then(function (res) {
-    if (!res.ok) throw new Error(res.data && res.data.error || 'Giriş başarısız');
-    authSave({ token: res.data.token, name: res.data.name });
-    var s = load();
-    s.units = mergeUnitsClient(s.units || {}, res.data.units || {});
-    save(s);
-    return res.data;
-  });
-}
-
-function logout() {
-  authClear();
-  try { localStorage.removeItem(GUEST_STORE); } catch (e) {}
-  save({});
 }
 
 /* ---------------- Hilfsmittel ---------------- */
@@ -173,13 +95,19 @@ function wireAudio(root, media) {
     var rec = (media.audio && media.audio[bar.dataset.src]) || null;
     var pl = $('.pl', bar), st = $('.st', bar), fill = $('.track i', bar), rate = $('.rate', bar);
     var a = new Audio(); a.preload = 'none';
-    var triedRemote = false, dead = false;
+    var triedRemote = false, dead = false, wantsPlay = false;
 
     if (!rec) { dead = true; bar.classList.add('miss'); st.textContent = 'Ses dosyası tanımsız'; }
     else a.src = rec.local;
 
     a.addEventListener('error', function () {
-      if (rec && rec.remote && !triedRemote) { triedRemote = true; a.src = rec.remote; a.load(); return; }
+      if (rec && rec.remote && !triedRemote) {
+        triedRemote = true; a.src = rec.remote; a.load();
+        if (wantsPlay) {
+          a.play().then(function () { pl.innerHTML = S_ICO; }).catch(function () {});
+        }
+        return;
+      }
       dead = true; bar.classList.add('miss');
       st.textContent = 'Ses dosyası yok — metni okuyun';
     });
@@ -191,14 +119,15 @@ function wireAudio(root, media) {
       st.textContent = fmt(a.currentTime) + ' / ' + fmt(a.duration);
       fill.style.width = (a.currentTime / a.duration * 100) + '%';
     });
-    a.addEventListener('ended', function () { pl.innerHTML = P_ICO; fill.style.width = '0'; });
+    a.addEventListener('ended', function () { pl.innerHTML = P_ICO; fill.style.width = '0'; wantsPlay = false; });
 
     pl.onclick = function () {
       if (dead) return;
       if (a.paused) {
         AUDIOS.forEach(function (o) { o.pause(); });
+        wantsPlay = true;
         a.play().then(function () { pl.innerHTML = S_ICO; }).catch(function () {});
-      } else { a.pause(); pl.innerHTML = P_ICO; }
+      } else { a.pause(); pl.innerHTML = P_ICO; wantsPlay = false; }
     };
     if (rate) {
       var rs = [1, .75, .5, 1.25], ri = 0;
@@ -328,11 +257,11 @@ function updateScore() {
   if (!no) return;
   no.textContent = r + '/' + t;
   var touched = !!$('.ok,.no', host), p = t ? r / t : 0, m;
-  if (!touched) m = '<b>Noch nicht geprüft</b>Alıştırmaları çözün, sonra “Prüfen”e basın.';
-  else if (p >= .9) m = '<b>Ausgezeichnet! 🎉</b>Bir sonraki üniteye geçebilirsiniz.';
-  else if (p >= .75) m = '<b>Sehr gut!</b>Birkaç noktayı tekrar edin, sonra devam edin.';
-  else if (p >= .5) m = '<b>Gut gemacht.</b>Gramatik sayfalarını bir kez daha okuyun.';
-  else m = '<b>Weiter üben!</b>Üniteyi baştan gözden geçirmeniz faydalı olur.';
+  if (!touched) m = '<b>' + uiStr('notChecked') + '</b>' + uiStr('notCheckedSub');
+  else if (p >= .9) m = '<b>' + uiStr('excellent') + '</b>' + uiStr('excellentSub');
+  else if (p >= .75) m = '<b>' + uiStr('veryGood') + '</b>' + uiStr('veryGoodSub');
+  else if (p >= .5) m = '<b>' + uiStr('good') + '</b>' + uiStr('goodSub');
+  else m = '<b>' + uiStr('keepPracticing') + '</b>' + uiStr('keepPracticingSub');
   tx.innerHTML = m;
 
   if (touched && UNIT) {
@@ -422,13 +351,15 @@ function goPage(i) {
 
   $('#pill').textContent = (CUR + 1) + ' / ' + PAGES.length;
   $('#prog').style.width = ((CUR + 1) / PAGES.length * 100) + '%';
-  $('#prevBtn').disabled = (CUR === 0);
+  var pb = $('#prevBtn');
+  pb.disabled = (CUR === 0);
+  pb.innerHTML = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"/></svg> ' + uiStr('back');
   var nb = $('#nextBtn');
   var last = CUR === PAGES.length - 1;
   nb.disabled = false;
   nb.innerHTML = last
-    ? 'Zur Übersicht'
-    : 'Weiter <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18l6-6-6-6"/></svg>';
+    ? uiStr('toOverview')
+    : uiStr('next') + ' <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18l6-6-6-6"/></svg>';
   nb.dataset.exit = last ? '1' : '';
 
   $$('.toc-item', $('#toc')).forEach(function (x, j) { x.classList.toggle('cur', j === CUR); });
@@ -465,22 +396,11 @@ function closeMenu() { $('#toc').classList.remove('on'); $('#scrim').classList.r
 
 /* ---------------- Home ---------------- */
 function renderHome() {
-  document.title = 'Deutsch, wieder…';
+  document.title = CATALOG.app.name;
   $('#pill').hidden = true;
   $('#botnav').classList.remove('on');
   $('#prog').style.width = '0';
   $('#verLabel').textContent = 'v' + CATALOG.app.version;
-
-  var auth = authLoad();
-  var badge = $('#userBadge'), logoutBtn = $('#logoutBtn');
-  if (auth) {
-    badge.textContent = auth.name;
-    badge.hidden = false;
-    logoutBtn.hidden = false;
-  } else {
-    badge.hidden = true;
-    logoutBtn.hidden = true;
-  }
 
   // Sprachreiter
   var tabs = $('#langTabs'); tabs.innerHTML = '';
@@ -517,7 +437,7 @@ function renderHome() {
     c.innerHTML =
       '<div class="thumb">' +
         '<img data-img="' + m.cover + '" alt="">' +
-        '<span class="badge">Einheit ' + m.number + '</span>' +
+        '<span class="badge">' + uiStr('unit') + ' ' + m.number + '</span>' +
         '<span class="done"><svg viewBox="0 0 24 24"><path d="M4 12l6 6L20 6"/></svg></span>' +
       '</div>' +
       '<div class="body">' +
@@ -578,7 +498,7 @@ function openUnit(u) {
     if (PAGES.length) PAGES[0].classList.add('on');
     var st = unitState(m.id);
     goPage(Math.min(st.page || 0, PAGES.length - 1));
-    document.title = m.title + ' · Deutsch, wieder…';
+    document.title = m.title + ' · ' + CATALOG.app.name;
     location.hash = m.id;
   };
 
@@ -649,62 +569,70 @@ $('#resetBtn').onclick = function () {
   if (!confirm('Tüm ilerleme silinecek. Emin misiniz?')) return;
   save({}); renderHome(); toast('İlerleme sıfırlandı');
 };
-$('#aboutBtn').onclick = function () {
-  toast('Deutsch, wieder… · Vorwärts ruhundan ilhamla, kişisel kullanım için');
-};
-
-$('#logoutBtn').onclick = function () {
-  if (!confirm('Çıkış yapılacak ve bu cihazdaki yerel ilerleme silinecek. Emin misiniz?')) return;
-  logout();
-  location.reload();
-};
-
-/* ---------------- Giriş ekranı verdirmesi ---------------- */
-function showAuthScreen() {
-  $('#homeScreen').classList.remove('on');
-  $('#readerScreen').classList.remove('on');
-  $('#authScreen').classList.add('on');
+/* ---------------- Geräte-Abgleich ---------------- */
+function progressCode() {
+  var s = load();
+  try { return btoa(unescape(encodeURIComponent(JSON.stringify(s.units || {})))); }
+  catch (e) { return ''; }
 }
-function hideAuthScreen() {
-  $('#authScreen').classList.remove('on');
-  $('#homeScreen').classList.add('on');
-}
-(function () {
-  var form = $('#authForm');
-  if (!form) return;
-  form.addEventListener('submit', function (e) {
-    e.preventDefault();
-    var name = $('#authName').value.trim();
-    var pin = $('#authPin').value.trim();
-    var errBox = $('#authErr');
-    errBox.hidden = true;
-    if (!name || !/^\d{4}$/.test(pin)) {
-      errBox.textContent = 'Ad ve 4 haneli PIN gerekli.';
-      errBox.hidden = false;
-      return;
-    }
-    var btn = $('#authSubmit');
-    btn.disabled = true; btn.textContent = 'Bağlanıyor…';
-    login(name, pin).then(function () {
-      hideAuthScreen();
-      startApp();
-    }).catch(function (e) {
-      errBox.textContent = e.message || 'Giriş başarısız';
-      errBox.hidden = false;
-    }).finally(function () {
-      btn.disabled = false; btn.textContent = 'Devam et';
-    });
+function applyCode(code) {
+  var raw, incoming;
+  try { raw = decodeURIComponent(escape(atob((code || '').replace(/\s+/g, '')))); } catch (e) { return 0; }
+  try { incoming = JSON.parse(raw); } catch (e) { return 0; }
+  if (!incoming || typeof incoming !== 'object') return 0;
+
+  var s = load(); s.units = s.units || {}; var n = 0;
+  Object.keys(incoming).forEach(function (id) {
+    var a = s.units[id] || { page: 0, seen: [], score: null, total: null, done: false };
+    var b = incoming[id] || {};
+    var seen = (a.seen || []).slice();
+    (b.seen || []).forEach(function (x) { if (seen.indexOf(x) === -1) seen.push(x); });
+    var better = (b.score != null && (a.score == null || b.score > a.score));
+    s.units[id] = {
+      page: Math.max(a.page || 0, b.page || 0),
+      seen: seen,
+      score: better ? b.score : a.score,
+      total: better ? b.total : a.total,
+      done: !!(a.done || b.done)
+    };
+    n++;
   });
-  $('#authSkip').onclick = function () {
-    setGuest();
-    hideAuthScreen();
-    startApp();
-  };
-})();
+  save(s); return n;
+}
+function openSync() {
+  $('#syncOut').value = progressCode();
+  $('#syncIn').value = '';
+  $('#syncModal').classList.add('on');
+  $('#syncScrim').classList.add('on');
+}
+function closeSync() {
+  $('#syncModal').classList.remove('on');
+  $('#syncScrim').classList.remove('on');
+}
+$('#syncBtn').onclick = openSync;
+$('#syncClose').onclick = closeSync;
+$('#syncScrim').onclick = closeSync;
+$('#syncCopy').onclick = function () {
+  var t = $('#syncOut');
+  t.select(); t.setSelectionRange(0, 99999);
+  var ok = false;
+  try { ok = document.execCommand('copy'); } catch (e) {}
+  if (navigator.clipboard) navigator.clipboard.writeText(t.value).then(function () {}, function () {});
+  toast(ok || navigator.clipboard ? 'Kod kopyalandı' : 'Kodu elle seçip kopyalayın');
+};
+$('#syncApply').onclick = function () {
+  var n = applyCode($('#syncIn').value);
+  if (!n) { toast('Kod okunamadı — tamamını yapıştırdığınızdan emin olun'); return; }
+  closeSync(); renderHome();
+  toast(n + ' ünitenin ilerlemesi birleştirildi');
+};
+
+$('#aboutBtn').onclick = function () {
+  toast(CATALOG.app.name + ' · Vorwärts ruhundan ilhamla, kişisel kullanım için');
+};
 
 /* ---------------- Start ---------------- */
-function startApp() {
-  pull().then(function () {
+function boot() {
   fetch('content/catalog.json').then(function (r) { return r.json(); }).then(function (cat) {
     CATALOG = cat;
     LANG = cat.languages[0];
@@ -738,16 +666,6 @@ function startApp() {
       'GitHub Pages adresinden ya da yerel bir sunucudan açın.</p>' +
       '<p class="lede" style="color:var(--ink-3);font-size:13px">' + esc(String(err)) + '</p></div>';
   });
-  });
-}
-
-function boot() {
-  var auth = authLoad();
-  if (apiBase() && !auth && !isGuest()) {
-    showAuthScreen();
-    return;
-  }
-  startApp();
 }
 
 if ('serviceWorker' in navigator) {

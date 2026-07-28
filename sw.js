@@ -1,7 +1,7 @@
-/* Deutsch, wieder… — Service Worker
+/* Yes We Do Learning (YWDL) — Service Worker
    Kabuk önceden önbelleğe alınır; içerik ve medya kullanıldıkça saklanır. */
 
-const VERSION = 'dw-v1.3.0';
+const VERSION = 'ywdl-v1.4.0';
 const SHELL = VERSION + '-shell';
 const DATA  = VERSION + '-data';
 const MEDIA = VERSION + '-media';

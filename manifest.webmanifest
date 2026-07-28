@@ -1,7 +1,7 @@
 {
-  "name": "Deutsch, wieder…",
-  "short_name": "Deutsch",
-  "description": "Unutulmuş dilleri yeniden aktive eden kişisel eğitim serisi.",
+  "name": "Yes We Do Learning",
+  "short_name": "YWDL",
+  "description": "Yes We Do Learning — unutulmuş bilgiyi yeniden aktive eden kişisel eğitim serisi.",
   "start_url": "./index.html",
   "scope": "./",
   "display": "standalone",
