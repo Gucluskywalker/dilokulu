@@ -1,7 +1,7 @@
 {
   "app": {
     "name": "Deutsch, wieder…",
-    "version": "2.0.0"
+    "version": "1.3.0"
   },
   "languages": [
     {
@@ -30,6 +30,37 @@
             {
               "n": 4,
               "meta": "content/de/a1/unit04.json"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "code": "en",
+      "name": "English",
+      "tr": "İngilizce",
+      "accent": "#0F5F5C",
+      "levels": [
+        {
+          "code": "a1",
+          "name": "A1",
+          "tr": "Başlangıç",
+          "units": [
+            {
+              "n": 1,
+              "meta": "content/en/a1/unit01.json"
+            },
+            {
+              "n": 2,
+              "meta": "content/en/a1/unit02.json"
+            },
+            {
+              "n": 3,
+              "meta": "content/en/a1/unit03.json"
+            },
+            {
+              "n": 4,
+              "meta": "content/en/a1/unit04.json"
             }
           ]
         }
