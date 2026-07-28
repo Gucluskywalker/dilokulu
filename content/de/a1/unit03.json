@@ -1,0 +1,126 @@
+{
+  "id": "de-a1-u03",
+  "number": 3,
+  "title": "Ein ganz normaler Tag",
+  "subtitle": "Uhrzeit · Tagesablauf · trennbare Verben · Akkusativ",
+  "tr": "Saat, günlük akış, düzensiz ve ayrılabilen fiiller, Akkusativ",
+  "testPoints": 45,
+  "cover": "cover",
+  "pages": [
+    {
+      "t": "Auftakt",
+      "s": "Lernziele · Kurze Wiederholung"
+    },
+    {
+      "t": "Die Geschichte",
+      "s": "Montagmorgen · Leseverstehen"
+    },
+    {
+      "t": "Uhrzeit &amp; Kalender",
+      "s": "Wie spät ist es? · Tage · Monate"
+    },
+    {
+      "t": "Grammatik 1",
+      "s": "Unregelmäßige Verben · Vokalwechsel"
+    },
+    {
+      "t": "Grammatik 2",
+      "s": "Trennbare Verben · die Satzklammer"
+    },
+    {
+      "t": "Wortschatz 1",
+      "s": "Der Tagesablauf · Haushalt"
+    },
+    {
+      "t": "Dialog",
+      "s": "Einen Termin machen · beim Arzt anrufen"
+    },
+    {
+      "t": "Grammatik 3",
+      "s": "Der Akkusativ · komplett"
+    },
+    {
+      "t": "Grammatik 4",
+      "s": "Zeitangaben · um, am, im, von … bis"
+    },
+    {
+      "t": "Wortschatz 2",
+      "s": "Freizeit &amp; Hobbys · gern, lieber"
+    },
+    {
+      "t": "Sprechen &amp; Schreiben",
+      "s": "Produktion · Kulturfenster Zeit"
+    },
+    {
+      "t": "Wiederholung &amp; Test",
+      "s": "Zusammenfassung · Mini-Test"
+    }
+  ],
+  "media": {
+    "img": {
+      "cover": {
+        "local": "media/de/a1/u03-cover.jpg",
+        "remote": "https://d8j0ntlcm91z4.cloudfront.net/user_3CIlOIVYyY7BGEQ6xUIoqXsPhYb/hf_20260726_200016_72deecc7-4180-4084-83b4-f518efa75e77.png"
+      },
+      "tagesablauf": {
+        "local": "media/de/a1/u03-tagesablauf.jpg",
+        "remote": "https://d8j0ntlcm91z4.cloudfront.net/user_3CIlOIVYyY7BGEQ6xUIoqXsPhYb/hf_20260726_200036_107b74d7-b65d-43a6-9401-c56fc51560a7.png"
+      },
+      "dialog": {
+        "local": "media/de/a1/u03-dialog.jpg",
+        "remote": "https://d8j0ntlcm91z4.cloudfront.net/user_3CIlOIVYyY7BGEQ6xUIoqXsPhYb/hf_20260726_200052_a6e36489-751c-499d-889b-5393940518d4.png"
+      },
+      "freizeit": {
+        "local": "media/de/a1/u03-freizeit.jpg",
+        "remote": "https://d8j0ntlcm91z4.cloudfront.net/user_3CIlOIVYyY7BGEQ6xUIoqXsPhYb/hf_20260726_200105_48410d70-18cb-492f-8824-b5a44f23a692.png"
+      },
+      "kultur": {
+        "local": "media/de/a1/u03-kultur.jpg",
+        "remote": "https://d8j0ntlcm91z4.cloudfront.net/user_3CIlOIVYyY7BGEQ6xUIoqXsPhYb/hf_20260726_200119_e4ff0a03-85d1-4be6-b14f-f26de08f58a9.png"
+      },
+      "markus": {
+        "local": "media/de/a1/u03-markus.jpg",
+        "remote": "https://d8j0ntlcm91z4.cloudfront.net/user_3CIlOIVYyY7BGEQ6xUIoqXsPhYb/hf_20260726_131106_ed8656af-463a-4984-afe6-20995ac48ce4.png"
+      },
+      "julia": {
+        "local": "media/de/a1/u03-julia.jpg",
+        "remote": "https://d8j0ntlcm91z4.cloudfront.net/user_3CIlOIVYyY7BGEQ6xUIoqXsPhYb/hf_20260726_131113_adac759c-9727-4c32-bc13-30c0cbd05b97.png"
+      },
+      "lukas": {
+        "local": "media/de/a1/u03-lukas.jpg",
+        "remote": "https://d8j0ntlcm91z4.cloudfront.net/user_3CIlOIVYyY7BGEQ6xUIoqXsPhYb/hf_20260726_131119_8bf4efdc-5a4c-484a-a528-55d82686d9b9.png"
+      },
+      "emma": {
+        "local": "media/de/a1/u03-emma.jpg",
+        "remote": "https://d8j0ntlcm91z4.cloudfront.net/user_3CIlOIVYyY7BGEQ6xUIoqXsPhYb/hf_20260726_131126_71d8f29b-a403-48e0-bf81-f9986080a691.png"
+      },
+      "schneider": {
+        "local": "media/de/a1/u03-schneider.jpg",
+        "remote": "https://d8j0ntlcm91z4.cloudfront.net/user_3CIlOIVYyY7BGEQ6xUIoqXsPhYb/hf_20260726_131133_9603d9c4-ec81-4116-969b-a622e18e8c0c.png"
+      },
+      "bruno": {
+        "local": "media/de/a1/u03-bruno.jpg",
+        "remote": "https://d8j0ntlcm91z4.cloudfront.net/user_3CIlOIVYyY7BGEQ6xUIoqXsPhYb/hf_20260726_131140_dc3ddd1f-bdad-4e9e-b314-80cd62473013.png"
+      }
+    },
+    "audio": {
+      "a/01": {
+        "local": "media/de/a1/u03-a01.mp3",
+        "remote": "https://d8j0ntlcm91z4.cloudfront.net/user_3CIlOIVYyY7BGEQ6xUIoqXsPhYb/hf_20260726_202203_bc74c18d-d063-45c8-af82-e5d401f0e192.mp3"
+      },
+      "a/02": {
+        "local": "media/de/a1/u03-a02.mp3",
+        "remote": "https://d8j0ntlcm91z4.cloudfront.net/user_3CIlOIVYyY7BGEQ6xUIoqXsPhYb/hf_20260726_202218_511d90af-bbf8-42cb-bcbe-9afc65ac02f1.mp3"
+      },
+      "a/03": {
+        "local": "media/de/a1/u03-a03.mp3",
+        "remote": "https://d8j0ntlcm91z4.cloudfront.net/user_3CIlOIVYyY7BGEQ6xUIoqXsPhYb/hf_20260726_202233_e5da14ee-8acc-40dd-a11c-2a7599ab7781.mp3"
+      },
+      "a/04": {
+        "local": "media/de/a1/u03-a04.mp3",
+        "remote": "https://d8j0ntlcm91z4.cloudfront.net/user_3CIlOIVYyY7BGEQ6xUIoqXsPhYb/hf_20260726_202247_f4a2f4d9-28f9-4a3b-9bcc-00b231c626ec.mp3"
+      }
+    }
+  },
+  "content": "content/de/a1/unit03.html"
+}

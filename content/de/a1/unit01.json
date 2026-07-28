@@ -1,0 +1,142 @@
+{
+  "id": "de-a1-u01",
+  "number": 1,
+  "title": "Guten Tag! Wir sind die Webers",
+  "subtitle": "Begrüßen · Sich vorstellen · sein & haben · W‑Fragen · Zahlen",
+  "tr": "Selamlaşma, tanışma, sein ve haben, cümle yapısı, sayılar ve alfabe",
+  "testPoints": 40,
+  "cover": "cover",
+  "pages": [
+    {
+      "t": "Auftakt",
+      "s": "Lernziele · Die Personen"
+    },
+    {
+      "t": "Die Geschichte",
+      "s": "Ein neuer Anfang · Leseverstehen"
+    },
+    {
+      "t": "Wortschatz 1",
+      "s": "Begrüßung · Vorstellung · Höflichkeit"
+    },
+    {
+      "t": "Grammatik 1",
+      "s": "Personalpronomen · das Verb sein"
+    },
+    {
+      "t": "Grammatik 2",
+      "s": "Das Verb haben · sein oder haben"
+    },
+    {
+      "t": "Grammatik 3",
+      "s": "Satzstellung · Verb auf Position 2"
+    },
+    {
+      "t": "Dialog",
+      "s": "Der erste Schultag · Hörverstehen"
+    },
+    {
+      "t": "Grammatik 4",
+      "s": "W-Fragen · heißen, kommen, wohnen"
+    },
+    {
+      "t": "Zahlen &amp; Alphabet",
+      "s": "0–100 · Buchstabieren"
+    },
+    {
+      "t": "Länder &amp; Berufe",
+      "s": "Woher? · Welche Sprache? · Was sind Sie?"
+    },
+    {
+      "t": "Sprechen &amp; Schreiben",
+      "s": "Produktion · Kulturfenster Leipzig"
+    },
+    {
+      "t": "Wiederholung &amp; Test",
+      "s": "Zusammenfassung · Mini-Test"
+    }
+  ],
+  "media": {
+    "img": {
+      "cover": {
+        "local": "media/de/a1/u01-cover.jpg",
+        "remote": "https://d8j0ntlcm91z4.cloudfront.net/user_3CIlOIVYyY7BGEQ6xUIoqXsPhYb/hf_20260726_131152_001f74c2-d92a-4ca4-b68c-515f4a1ff9da.png"
+      },
+      "story": {
+        "local": "media/de/a1/u01-story.jpg",
+        "remote": "https://d8j0ntlcm91z4.cloudfront.net/user_3CIlOIVYyY7BGEQ6xUIoqXsPhYb/hf_20260726_131203_0332409a-23c6-44ab-8709-514e1b999db8.png"
+      },
+      "dialog": {
+        "local": "media/de/a1/u01-dialog.jpg",
+        "remote": "https://d8j0ntlcm91z4.cloudfront.net/user_3CIlOIVYyY7BGEQ6xUIoqXsPhYb/hf_20260726_131216_519d950f-fcf8-42ed-8844-0805678dd7d0.png"
+      },
+      "greetings": {
+        "local": "media/de/a1/u01-greetings.jpg",
+        "remote": "https://d8j0ntlcm91z4.cloudfront.net/user_3CIlOIVYyY7BGEQ6xUIoqXsPhYb/hf_20260726_131227_3d3de4dd-9d44-4f65-9678-5bdcdd69875e.png"
+      },
+      "map": {
+        "local": "media/de/a1/u01-map.jpg",
+        "remote": "https://d8j0ntlcm91z4.cloudfront.net/user_3CIlOIVYyY7BGEQ6xUIoqXsPhYb/hf_20260726_131242_e7fa31d4-876b-4933-aad3-18b828cbe0e3.png"
+      },
+      "leipzig": {
+        "local": "media/de/a1/u01-leipzig.jpg",
+        "remote": "https://d8j0ntlcm91z4.cloudfront.net/user_3CIlOIVYyY7BGEQ6xUIoqXsPhYb/hf_20260726_131253_4b980b8c-1c0e-48e9-9d64-3b8603b72f03.png"
+      },
+      "berufe": {
+        "local": "media/de/a1/u01-berufe.jpg",
+        "remote": "https://d8j0ntlcm91z4.cloudfront.net/user_3CIlOIVYyY7BGEQ6xUIoqXsPhYb/hf_20260726_131306_afc7addf-67bb-4aae-84ad-de40579fa2a3.png"
+      },
+      "cast": {
+        "local": "media/de/a1/u01-cast.jpg",
+        "remote": "https://d8j0ntlcm91z4.cloudfront.net/user_3CIlOIVYyY7BGEQ6xUIoqXsPhYb/hf_20260726_130313_1b0ae4ef-fbcd-453d-804a-e23000221d88.png"
+      },
+      "markus": {
+        "local": "media/de/a1/u01-markus.jpg",
+        "remote": "https://d8j0ntlcm91z4.cloudfront.net/user_3CIlOIVYyY7BGEQ6xUIoqXsPhYb/hf_20260726_131106_ed8656af-463a-4984-afe6-20995ac48ce4.png"
+      },
+      "julia": {
+        "local": "media/de/a1/u01-julia.jpg",
+        "remote": "https://d8j0ntlcm91z4.cloudfront.net/user_3CIlOIVYyY7BGEQ6xUIoqXsPhYb/hf_20260726_131113_adac759c-9727-4c32-bc13-30c0cbd05b97.png"
+      },
+      "lukas": {
+        "local": "media/de/a1/u01-lukas.jpg",
+        "remote": "https://d8j0ntlcm91z4.cloudfront.net/user_3CIlOIVYyY7BGEQ6xUIoqXsPhYb/hf_20260726_131119_8bf4efdc-5a4c-484a-a528-55d82686d9b9.png"
+      },
+      "emma": {
+        "local": "media/de/a1/u01-emma.jpg",
+        "remote": "https://d8j0ntlcm91z4.cloudfront.net/user_3CIlOIVYyY7BGEQ6xUIoqXsPhYb/hf_20260726_131126_71d8f29b-a403-48e0-bf81-f9986080a691.png"
+      },
+      "schneider": {
+        "local": "media/de/a1/u01-schneider.jpg",
+        "remote": "https://d8j0ntlcm91z4.cloudfront.net/user_3CIlOIVYyY7BGEQ6xUIoqXsPhYb/hf_20260726_131133_9603d9c4-ec81-4116-969b-a622e18e8c0c.png"
+      },
+      "bruno": {
+        "local": "media/de/a1/u01-bruno.jpg",
+        "remote": "https://d8j0ntlcm91z4.cloudfront.net/user_3CIlOIVYyY7BGEQ6xUIoqXsPhYb/hf_20260726_131140_dc3ddd1f-bdad-4e9e-b314-80cd62473013.png"
+      }
+    },
+    "audio": {
+      "audio/01-geschichte.mp3": {
+        "local": "media/de/a1/u01-a01.mp3",
+        "remote": "https://d8j0ntlcm91z4.cloudfront.net/user_3CIlOIVYyY7BGEQ6xUIoqXsPhYb/hf_20260726_135452_38262c38-b8c2-4fa5-8375-d0dfe567328d.mp3"
+      },
+      "audio/02-dialog.mp3": {
+        "local": "media/de/a1/u01-a02.mp3",
+        "remote": "https://d8j0ntlcm91z4.cloudfront.net/user_3CIlOIVYyY7BGEQ6xUIoqXsPhYb/hf_20260726_135502_3df40d2c-4676-49d9-a3ac-b29e9dba27d9.mp3"
+      },
+      "audio/03-zahlen.mp3": {
+        "local": "media/de/a1/u01-a03.mp3",
+        "remote": "https://d8j0ntlcm91z4.cloudfront.net/user_3CIlOIVYyY7BGEQ6xUIoqXsPhYb/hf_20260726_135512_0e77609b-d327-478b-b415-9b6ea7922d24.mp3"
+      },
+      "audio/04-alphabet.mp3": {
+        "local": "media/de/a1/u01-a04.mp3",
+        "remote": "https://d8j0ntlcm91z4.cloudfront.net/user_3CIlOIVYyY7BGEQ6xUIoqXsPhYb/hf_20260726_135521_de04c677-9369-44a9-bde3-4d3561086218.mp3"
+      },
+      "audio/05-wortschatz.mp3": {
+        "local": "media/de/a1/u01-a05.mp3",
+        "remote": "https://d8j0ntlcm91z4.cloudfront.net/user_3CIlOIVYyY7BGEQ6xUIoqXsPhYb/hf_20260726_135531_807c5e97-b162-41a1-8b23-27b5cec97658.mp3"
+      }
+    }
+  },
+  "content": "content/de/a1/unit01.html"
+}

@@ -1,0 +1,39 @@
+{
+  "app": {
+    "name": "Deutsch, wieder…",
+    "version": "1.1.0"
+  },
+  "languages": [
+    {
+      "code": "de",
+      "name": "Deutsch",
+      "tr": "Almanca",
+      "accent": "#0F5F5C",
+      "levels": [
+        {
+          "code": "a1",
+          "name": "A1",
+          "tr": "Başlangıç",
+          "units": [
+            {
+              "n": 1,
+              "meta": "content/de/a1/unit01.json"
+            },
+            {
+              "n": 2,
+              "meta": "content/de/a1/unit02.json"
+            },
+            {
+              "n": 3,
+              "meta": "content/de/a1/unit03.json"
+            },
+            {
+              "n": 4,
+              "meta": "content/de/a1/unit04.json"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

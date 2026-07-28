@@ -1,0 +1,130 @@
+{
+  "id": "de-a1-u04",
+  "number": 4,
+  "title": "In der Stadt",
+  "subtitle": "Einkaufen · Restaurant · Modalverben · Imperativ · Dativ",
+  "tr": "Alışveriş, restoran, modal fiiller, Dativ, yol tarifi",
+  "testPoints": 50,
+  "cover": "cover",
+  "pages": [
+    {
+      "t": "Auftakt",
+      "s": "Lernziele · Kurze Wiederholung"
+    },
+    {
+      "t": "Die Geschichte",
+      "s": "Samstag auf dem Markt · Leseverstehen"
+    },
+    {
+      "t": "Wortschatz 1",
+      "s": "Lebensmittel · Mengen · Preise"
+    },
+    {
+      "t": "Grammatik 1",
+      "s": "Die Modalverben · Formen"
+    },
+    {
+      "t": "Grammatik 2",
+      "s": "Die Satzklammer · Modalverb + Infinitiv"
+    },
+    {
+      "t": "Dialog",
+      "s": "Im Restaurant · bestellen &amp; bezahlen"
+    },
+    {
+      "t": "Wortschatz 2",
+      "s": "Die Stadt · Verkehrsmittel"
+    },
+    {
+      "t": "Grammatik 3",
+      "s": "Der Dativ · Artikel &amp; Pronomen"
+    },
+    {
+      "t": "Grammatik 4",
+      "s": "Präpositionen mit Dativ"
+    },
+    {
+      "t": "Grammatik 5",
+      "s": "Der Imperativ · die Wegbeschreibung"
+    },
+    {
+      "t": "Sprechen &amp; Schreiben",
+      "s": "Produktion · Kulturfenster Einkaufen"
+    },
+    {
+      "t": "Wiederholung &amp; Test",
+      "s": "Zusammenfassung · Mini-Test · A1 geschafft"
+    }
+  ],
+  "media": {
+    "img": {
+      "cover": {
+        "local": "media/de/a1/u04-cover.jpg",
+        "remote": "https://d8j0ntlcm91z4.cloudfront.net/user_3CIlOIVYyY7BGEQ6xUIoqXsPhYb/hf_20260726_200135_3e20bc44-c791-46f1-a368-b2e3be3aabba.png"
+      },
+      "essen": {
+        "local": "media/de/a1/u04-essen.jpg",
+        "remote": "https://d8j0ntlcm91z4.cloudfront.net/user_3CIlOIVYyY7BGEQ6xUIoqXsPhYb/hf_20260726_200147_4172bdd5-c4bc-4dae-8e41-c2065fa61267.png"
+      },
+      "restaurant": {
+        "local": "media/de/a1/u04-restaurant.jpg",
+        "remote": "https://d8j0ntlcm91z4.cloudfront.net/user_3CIlOIVYyY7BGEQ6xUIoqXsPhYb/hf_20260726_200200_966f4473-0b12-4e55-bf5c-8b07c6eff5a9.png"
+      },
+      "stadt": {
+        "local": "media/de/a1/u04-stadt.jpg",
+        "remote": "https://d8j0ntlcm91z4.cloudfront.net/user_3CIlOIVYyY7BGEQ6xUIoqXsPhYb/hf_20260726_200217_f07c06f7-d3a6-4672-b92a-000f4e345523.png"
+      },
+      "verkehr": {
+        "local": "media/de/a1/u04-verkehr.jpg",
+        "remote": "https://d8j0ntlcm91z4.cloudfront.net/user_3CIlOIVYyY7BGEQ6xUIoqXsPhYb/hf_20260726_200230_9d58521d-6ee5-4454-b7c0-a2bc7a332d62.png"
+      },
+      "kultur": {
+        "local": "media/de/a1/u04-kultur.jpg",
+        "remote": "https://d8j0ntlcm91z4.cloudfront.net/user_3CIlOIVYyY7BGEQ6xUIoqXsPhYb/hf_20260726_200245_af656187-d41a-40a0-b123-40d802d36818.png"
+      },
+      "markus": {
+        "local": "media/de/a1/u04-markus.jpg",
+        "remote": "https://d8j0ntlcm91z4.cloudfront.net/user_3CIlOIVYyY7BGEQ6xUIoqXsPhYb/hf_20260726_131106_ed8656af-463a-4984-afe6-20995ac48ce4.png"
+      },
+      "julia": {
+        "local": "media/de/a1/u04-julia.jpg",
+        "remote": "https://d8j0ntlcm91z4.cloudfront.net/user_3CIlOIVYyY7BGEQ6xUIoqXsPhYb/hf_20260726_131113_adac759c-9727-4c32-bc13-30c0cbd05b97.png"
+      },
+      "lukas": {
+        "local": "media/de/a1/u04-lukas.jpg",
+        "remote": "https://d8j0ntlcm91z4.cloudfront.net/user_3CIlOIVYyY7BGEQ6xUIoqXsPhYb/hf_20260726_131119_8bf4efdc-5a4c-484a-a528-55d82686d9b9.png"
+      },
+      "emma": {
+        "local": "media/de/a1/u04-emma.jpg",
+        "remote": "https://d8j0ntlcm91z4.cloudfront.net/user_3CIlOIVYyY7BGEQ6xUIoqXsPhYb/hf_20260726_131126_71d8f29b-a403-48e0-bf81-f9986080a691.png"
+      },
+      "schneider": {
+        "local": "media/de/a1/u04-schneider.jpg",
+        "remote": "https://d8j0ntlcm91z4.cloudfront.net/user_3CIlOIVYyY7BGEQ6xUIoqXsPhYb/hf_20260726_131133_9603d9c4-ec81-4116-969b-a622e18e8c0c.png"
+      },
+      "bruno": {
+        "local": "media/de/a1/u04-bruno.jpg",
+        "remote": "https://d8j0ntlcm91z4.cloudfront.net/user_3CIlOIVYyY7BGEQ6xUIoqXsPhYb/hf_20260726_131140_dc3ddd1f-bdad-4e9e-b314-80cd62473013.png"
+      }
+    },
+    "audio": {
+      "a/01": {
+        "local": "media/de/a1/u04-a01.mp3",
+        "remote": "https://d8j0ntlcm91z4.cloudfront.net/user_3CIlOIVYyY7BGEQ6xUIoqXsPhYb/hf_20260726_203621_40a74587-2887-4f18-a21d-e90242ad298b.mp3"
+      },
+      "a/02": {
+        "local": "media/de/a1/u04-a02.mp3",
+        "remote": "https://d8j0ntlcm91z4.cloudfront.net/user_3CIlOIVYyY7BGEQ6xUIoqXsPhYb/hf_20260726_203639_c72c5ccb-34d9-4ed1-82ea-f64ce6e77108.mp3"
+      },
+      "a/03": {
+        "local": "media/de/a1/u04-a03.mp3",
+        "remote": "https://d8j0ntlcm91z4.cloudfront.net/user_3CIlOIVYyY7BGEQ6xUIoqXsPhYb/hf_20260726_203654_8d31a55a-660a-4586-830d-f48be7fbadf1.mp3"
+      },
+      "a/04": {
+        "local": "media/de/a1/u04-a04.mp3",
+        "remote": "https://d8j0ntlcm91z4.cloudfront.net/user_3CIlOIVYyY7BGEQ6xUIoqXsPhYb/hf_20260726_203710_bd54480a-8418-475a-bb34-300d74e564fd.mp3"
+      }
+    }
+  },
+  "content": "content/de/a1/unit04.html"
+}

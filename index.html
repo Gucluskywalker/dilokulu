@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
+<meta name="apple-mobile-web-app-title" content="Deutsch">
+<meta name="theme-color" content="#FAF6EF">
+<meta name="description" content="Deutsch, wieder… — kişiselleştirilmiş dil eğitimi">
+<title>Deutsch, wieder…</title>
+
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="apple-touch-icon" href="icons/apple-touch-icon.png">
+<link rel="icon" href="icons/icon-192.png">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=Inter:wght@400;500;600;700&family=Lora:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="app.css">
+</head>
+<body>
+
+<header class="topbar">
+  <div class="topbar-in">
+    <button class="iconbtn" id="menuBtn" aria-label="Menü">
+      <svg viewBox="0 0 24 24"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
+    </button>
+    <div class="brandmark">Deutsch, <span>wieder…</span></div>
+    <div class="spacer"></div>
+    <div class="pagepill" id="pill" hidden></div>
+  </div>
+  <div class="progress"><i id="prog"></i></div>
+</header>
+
+<div class="scrim" id="scrim"></div>
+<nav class="toc" id="toc"></nav>
+
+<!-- ══════════ HOME ══════════ -->
+<main class="screen on" id="homeScreen">
+  <div class="home">
+    <div class="hero">
+      <h1>Deutsch, <em>wieder…</em></h1>
+      <p id="heroSub">Unutulmuş Almancayı yeniden aktive eden kişisel eğitim serisi.</p>
+      <div class="stat" id="heroStats"></div>
+    </div>
+
+    <div class="sect-h"><h2>Diller</h2><span id="langNote"></span></div>
+    <div class="langtabs" id="langTabs"></div>
+
+    <div class="sect-h"><h2 id="levelTitle">A1 · Başlangıç</h2><span id="levelNote"></span></div>
+    <div class="units" id="unitGrid"></div>
+
+    <div class="homefoot">
+      <button class="tinybtn" id="resetBtn">İlerlemeyi sıfırla</button>
+      <button class="tinybtn" id="aboutBtn">Hakkında</button>
+      <span class="ver" id="verLabel"></span>
+    </div>
+  </div>
+</main>
+
+<!-- ══════════ READER ══════════ -->
+<main class="screen" id="readerScreen">
+  <div class="stage" id="stage">
+    <div class="loading"><div class="spin"></div><span>Ünite yükleniyor…</span></div>
+  </div>
+</main>
+
+<nav class="botnav" id="botnav">
+  <div class="botnav-in">
+    <button class="nav" id="prevBtn"><svg viewBox="0 0 24 24"><path d="M15 18l-6-6 6-6"/></svg> Zurück</button>
+    <button class="nav pri" id="nextBtn">Weiter <svg viewBox="0 0 24 24"><path d="M9 18l6-6-6-6"/></svg></button>
+  </div>
+</nav>
+
+<div class="toast" id="toast"></div>
+
+<script src="app.js"></script>
+</body>
+</html>

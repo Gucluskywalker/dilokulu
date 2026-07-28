@@ -1,0 +1,142 @@
+{
+  "id": "de-a1-u02",
+  "number": 2,
+  "title": "Willkommen zu Hause",
+  "subtitle": "Die Familie · Das Haus · der/die/das · Plural · mein/dein · nicht & kein",
+  "tr": "Aile, ev, artikel örüntüleri, çoğul, iyelik, olumsuzlama",
+  "testPoints": 45,
+  "cover": "cover",
+  "pages": [
+    {
+      "t": "Auftakt",
+      "s": "Lernziele · Kurze Wiederholung"
+    },
+    {
+      "t": "Die Geschichte",
+      "s": "Kaffee bei den Webers · Leseverstehen"
+    },
+    {
+      "t": "Wortschatz 1",
+      "s": "Die Familie · der Stammbaum"
+    },
+    {
+      "t": "Grammatik 1",
+      "s": "der, die oder das? — die Muster"
+    },
+    {
+      "t": "Grammatik 2",
+      "s": "Der Plural · fünf Typen"
+    },
+    {
+      "t": "Wortschatz 2",
+      "s": "Das Haus · Möbel · Farben"
+    },
+    {
+      "t": "Grammatik 3",
+      "s": "Possessivartikel · mein, dein, sein …"
+    },
+    {
+      "t": "Dialog",
+      "s": "Ein Zimmer in Köln · WG-Besichtigung"
+    },
+    {
+      "t": "Grammatik 4",
+      "s": "Regelmäßige Verben · vollständig"
+    },
+    {
+      "t": "Grammatik 5",
+      "s": "Verneinung · nicht oder kein"
+    },
+    {
+      "t": "Sprechen &amp; Schreiben",
+      "s": "Produktion · Kulturfenster Wohnen"
+    },
+    {
+      "t": "Wiederholung &amp; Test",
+      "s": "Zusammenfassung · Mini-Test"
+    }
+  ],
+  "media": {
+    "img": {
+      "cover": {
+        "local": "media/de/a1/u02-cover.jpg",
+        "remote": "https://d8j0ntlcm91z4.cloudfront.net/user_3CIlOIVYyY7BGEQ6xUIoqXsPhYb/hf_20260726_150210_1cbadc00-f36a-444c-81aa-94c13658c6ce.png"
+      },
+      "story": {
+        "local": "media/de/a1/u02-story.jpg",
+        "remote": "https://d8j0ntlcm91z4.cloudfront.net/user_3CIlOIVYyY7BGEQ6xUIoqXsPhYb/hf_20260726_150225_c34c39f2-498e-4cfa-bd47-3b170c05bc79.png"
+      },
+      "haus": {
+        "local": "media/de/a1/u02-haus.jpg",
+        "remote": "https://d8j0ntlcm91z4.cloudfront.net/user_3CIlOIVYyY7BGEQ6xUIoqXsPhYb/hf_20260726_151757_2a6442c3-4f15-4e4f-9760-a790f1c167b4.png"
+      },
+      "moebel": {
+        "local": "media/de/a1/u02-moebel.jpg",
+        "remote": "https://d8j0ntlcm91z4.cloudfront.net/user_3CIlOIVYyY7BGEQ6xUIoqXsPhYb/hf_20260726_150254_fd82ec59-5475-48b1-a132-bf1689538a67.png"
+      },
+      "dialog": {
+        "local": "media/de/a1/u02-dialog.jpg",
+        "remote": "https://d8j0ntlcm91z4.cloudfront.net/user_3CIlOIVYyY7BGEQ6xUIoqXsPhYb/hf_20260726_150312_129d79aa-a508-42db-aa41-55dd573fba1b.png"
+      },
+      "kultur": {
+        "local": "media/de/a1/u02-kultur.jpg",
+        "remote": "https://d8j0ntlcm91z4.cloudfront.net/user_3CIlOIVYyY7BGEQ6xUIoqXsPhYb/hf_20260726_150327_075ec4d8-7949-48e1-bca1-73ca3ea6fe5a.png"
+      },
+      "oma": {
+        "local": "media/de/a1/u02-oma.jpg",
+        "remote": "https://d8j0ntlcm91z4.cloudfront.net/user_3CIlOIVYyY7BGEQ6xUIoqXsPhYb/hf_20260726_150344_6bd0b437-40b5-4ffd-a3f3-a33b69d34dea.png"
+      },
+      "opa": {
+        "local": "media/de/a1/u02-opa.jpg",
+        "remote": "https://d8j0ntlcm91z4.cloudfront.net/user_3CIlOIVYyY7BGEQ6xUIoqXsPhYb/hf_20260726_150357_0a1a6283-e039-4f85-89e3-ba7ce7e6138f.png"
+      },
+      "markus": {
+        "local": "media/de/a1/u02-markus.jpg",
+        "remote": "https://d8j0ntlcm91z4.cloudfront.net/user_3CIlOIVYyY7BGEQ6xUIoqXsPhYb/hf_20260726_131106_ed8656af-463a-4984-afe6-20995ac48ce4.png"
+      },
+      "julia": {
+        "local": "media/de/a1/u02-julia.jpg",
+        "remote": "https://d8j0ntlcm91z4.cloudfront.net/user_3CIlOIVYyY7BGEQ6xUIoqXsPhYb/hf_20260726_131113_adac759c-9727-4c32-bc13-30c0cbd05b97.png"
+      },
+      "lukas": {
+        "local": "media/de/a1/u02-lukas.jpg",
+        "remote": "https://d8j0ntlcm91z4.cloudfront.net/user_3CIlOIVYyY7BGEQ6xUIoqXsPhYb/hf_20260726_131119_8bf4efdc-5a4c-484a-a528-55d82686d9b9.png"
+      },
+      "emma": {
+        "local": "media/de/a1/u02-emma.jpg",
+        "remote": "https://d8j0ntlcm91z4.cloudfront.net/user_3CIlOIVYyY7BGEQ6xUIoqXsPhYb/hf_20260726_131126_71d8f29b-a403-48e0-bf81-f9986080a691.png"
+      },
+      "schneider": {
+        "local": "media/de/a1/u02-schneider.jpg",
+        "remote": "https://d8j0ntlcm91z4.cloudfront.net/user_3CIlOIVYyY7BGEQ6xUIoqXsPhYb/hf_20260726_131133_9603d9c4-ec81-4116-969b-a622e18e8c0c.png"
+      },
+      "bruno": {
+        "local": "media/de/a1/u02-bruno.jpg",
+        "remote": "https://d8j0ntlcm91z4.cloudfront.net/user_3CIlOIVYyY7BGEQ6xUIoqXsPhYb/hf_20260726_131140_dc3ddd1f-bdad-4e9e-b314-80cd62473013.png"
+      }
+    },
+    "audio": {
+      "a/01": {
+        "local": "media/de/a1/u02-a01.mp3",
+        "remote": "https://d8j0ntlcm91z4.cloudfront.net/user_3CIlOIVYyY7BGEQ6xUIoqXsPhYb/hf_20260726_151635_3550b843-3f08-47fd-a6c4-f6fa26f013d6.mp3"
+      },
+      "a/02": {
+        "local": "media/de/a1/u02-a02.mp3",
+        "remote": "https://d8j0ntlcm91z4.cloudfront.net/user_3CIlOIVYyY7BGEQ6xUIoqXsPhYb/hf_20260726_151649_dc3953bb-2ee3-4263-8403-feb80c1c31b6.mp3"
+      },
+      "a/03": {
+        "local": "media/de/a1/u02-a03.mp3",
+        "remote": "https://d8j0ntlcm91z4.cloudfront.net/user_3CIlOIVYyY7BGEQ6xUIoqXsPhYb/hf_20260726_151700_ad18c8a2-036c-4815-b078-fc11539801d2.mp3"
+      },
+      "a/04": {
+        "local": "media/de/a1/u02-a04.mp3",
+        "remote": "https://d8j0ntlcm91z4.cloudfront.net/user_3CIlOIVYyY7BGEQ6xUIoqXsPhYb/hf_20260726_151711_accccf61-1baf-46a6-9532-a3358be7af19.mp3"
+      },
+      "a/05": {
+        "local": "media/de/a1/u02-a05.mp3",
+        "remote": "https://d8j0ntlcm91z4.cloudfront.net/user_3CIlOIVYyY7BGEQ6xUIoqXsPhYb/hf_20260726_151725_daeca101-c488-4403-a788-a6726f0e6101.mp3"
+      }
+    }
+  },
+  "content": "content/de/a1/unit02.html"
+}
