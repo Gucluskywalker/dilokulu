@@ -1,0 +1,43 @@
+{
+  "id": "en-a1-u04",
+  "number": 4,
+  "title": "Out and About",
+  "subtitle": "Shopping · Food & drink · can/would like · Directions · A1 complete!",
+  "tr": "Alışveriş, yiyecek-içecek, can/would like, imperatif, yol tarifi — A1 tamamlanıyor",
+  "testPoints": 50,
+  "cover": "cover",
+  "pages": [
+    { "t": "Opening", "s": "Goals · Quick Review" },
+    { "t": "The Story", "s": "Saturday at the Market · Reading comprehension" },
+    { "t": "Vocabulary 1", "s": "Food &amp; drink · Quantities · Prices" },
+    { "t": "Grammar 1", "s": "can / can't · would like" },
+    { "t": "Grammar 2", "s": "Imperatives" },
+    { "t": "Dialogue", "s": "At the café · Ordering &amp; paying" },
+    { "t": "Vocabulary 2", "s": "The town · Transport" },
+    { "t": "Grammar 3", "s": "Countable / uncountable nouns" },
+    { "t": "Grammar 4", "s": "Asking for and giving directions" },
+    { "t": "Grammar 5", "s": "Present continuous — introduction" },
+    { "t": "Speaking &amp; Writing", "s": "Production · Culture window: shopping &amp; eating out" },
+    { "t": "Review &amp; Test", "s": "Summary · Mini-test · A1 complete!" }
+  ],
+  "media": {
+    "img": {
+      "cover": { "local": "media/en/a1/u04-cover.jpg", "remote": "https://d8j0ntlcm91z4.cloudfront.net/user_3CIlOIVYyY7BGEQ6xUIoqXsPhYb/hf_20260728_183305_47016ef1-e75c-4e8b-94da-f5d6c450f98b.png" },
+      "story": { "local": "media/en/a1/u04-story.jpg", "remote": "https://d8j0ntlcm91z4.cloudfront.net/user_3CIlOIVYyY7BGEQ6xUIoqXsPhYb/hf_20260728_184731_372aadcd-84b8-43b0-8770-9aa29ea469a8.png" },
+      "food": { "local": "media/en/a1/u04-food.jpg", "remote": "https://d8j0ntlcm91z4.cloudfront.net/user_3CIlOIVYyY7BGEQ6xUIoqXsPhYb/hf_20260728_184138_95eebf86-5b9c-4934-a1b0-c3942194ea77.png" },
+      "restaurant": { "local": "media/en/a1/u04-restaurant.jpg", "remote": "https://d8j0ntlcm91z4.cloudfront.net/user_3CIlOIVYyY7BGEQ6xUIoqXsPhYb/hf_20260728_184143_aeeec3af-c91a-47f5-92c9-5f17dfd32b47.png" },
+      "town": { "local": "media/en/a1/u04-town.jpg", "remote": "https://d8j0ntlcm91z4.cloudfront.net/user_3CIlOIVYyY7BGEQ6xUIoqXsPhYb/hf_20260728_184146_d5178a99-aa47-4b1d-9bd1-1d7d640aad90.png" },
+      "culture": { "local": "media/en/a1/u04-culture.jpg", "remote": "https://d8j0ntlcm91z4.cloudfront.net/user_3CIlOIVYyY7BGEQ6xUIoqXsPhYb/hf_20260728_184150_e5ed4a5b-97ef-4ddd-803b-944b3b366cd7.png" },
+      "tom": { "local": "media/en/a1/u04-tom.jpg", "remote": "https://d8j0ntlcm91z4.cloudfront.net/user_3CIlOIVYyY7BGEQ6xUIoqXsPhYb/hf_20260728_184017_e2803b0f-04a6-427d-a777-5d49b9ae6e0e.png" },
+      "rachel": { "local": "media/en/a1/u04-rachel.jpg", "remote": "https://d8j0ntlcm91z4.cloudfront.net/user_3CIlOIVYyY7BGEQ6xUIoqXsPhYb/hf_20260728_183646_3766c4e2-89c6-4fe1-8386-41018c60758b.png" },
+      "sophie": { "local": "media/en/a1/u04-sophie.jpg", "remote": "https://d8j0ntlcm91z4.cloudfront.net/user_3CIlOIVYyY7BGEQ6xUIoqXsPhYb/hf_20260728_183653_2f97398d-3e93-400c-bcde-62477009a8fa.png" }
+    },
+    "audio": {
+      "audio/01-story.mp3": { "local": "media/en/a1/u04-a01.mp3", "remote": "https://d8j0ntlcm91z4.cloudfront.net/user_3CIlOIVYyY7BGEQ6xUIoqXsPhYb/hf_20260728_183822_9413a7e1-d4ce-47b3-8007-d9a00f049136.mp3" },
+      "audio/02-dialog.mp3": { "local": "media/en/a1/u04-a02.mp3", "remote": "https://d8j0ntlcm91z4.cloudfront.net/user_3CIlOIVYyY7BGEQ6xUIoqXsPhYb/hf_20260728_183831_e397b61a-629d-4838-9f56-93e0972402bb.mp3" },
+      "audio/03-food.mp3": { "local": "media/en/a1/u04-a03.mp3", "remote": "" }
+    }
+  },
+  "content": "content/en/a1/unit04.html",
+  "_NOTE": "Görsel ve ses üretimi tamamlandı (Higgsfield, 28 Tem 2026). A1 seti (4 ünite) uçtan uca tamamlandı."
+}

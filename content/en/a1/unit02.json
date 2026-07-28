@@ -1,0 +1,47 @@
+{
+  "id": "en-a1-u02",
+  "number": 2,
+  "title": "Home Sweet Home",
+  "subtitle": "Family · The house · Plurals · Possessives · there is/are",
+  "tr": "Aile, ev, çoğullar, iyelikler, var/yok yapıları",
+  "testPoints": 45,
+  "cover": "cover",
+  "pages": [
+    { "t": "Opening", "s": "Goals · Quick Review" },
+    { "t": "The Story", "s": "Tea at the Blakes' · Reading comprehension" },
+    { "t": "Vocabulary 1", "s": "The family · The family tree" },
+    { "t": "Grammar 1", "s": "a / an / the — when do we use which?" },
+    { "t": "Grammar 2", "s": "Plurals — regular and irregular" },
+    { "t": "Vocabulary 2", "s": "The house · Furniture · Colours" },
+    { "t": "Grammar 3", "s": "Possessive 's · my/your/his/her" },
+    { "t": "Dialogue", "s": "A room in Manchester · Listening" },
+    { "t": "Grammar 4", "s": "have got · there is / there are" },
+    { "t": "Grammar 5", "s": "Prepositions of place" },
+    { "t": "Speaking &amp; Writing", "s": "Production · Culture window: British homes" },
+    { "t": "Review &amp; Test", "s": "Summary · Mini-test" }
+  ],
+  "media": {
+    "img": {
+      "cover": { "local": "media/en/a1/u02-cover.jpg", "remote": "https://d8j0ntlcm91z4.cloudfront.net/user_3CIlOIVYyY7BGEQ6xUIoqXsPhYb/hf_20260728_183258_582893f0-fecc-47a5-983a-b5d8f76cbb81.png" },
+      "story": { "local": "media/en/a1/u02-story.jpg", "remote": "https://d8j0ntlcm91z4.cloudfront.net/user_3CIlOIVYyY7BGEQ6xUIoqXsPhYb/hf_20260728_184436_79762b4e-7ba9-4a91-a644-082b19767ad5.png" },
+      "house": { "local": "media/en/a1/u02-house.jpg", "remote": "https://d8j0ntlcm91z4.cloudfront.net/user_3CIlOIVYyY7BGEQ6xUIoqXsPhYb/hf_20260728_184108_b5842296-868b-4800-b5e2-ab34cc9fceec.png" },
+      "dialog": { "local": "media/en/a1/u02-dialog.jpg", "remote": "https://d8j0ntlcm91z4.cloudfront.net/user_3CIlOIVYyY7BGEQ6xUIoqXsPhYb/hf_20260728_184111_ed8e07ce-e7a3-4adc-a5c4-386ea62046b5.png" },
+      "culture": { "local": "media/en/a1/u02-culture.jpg", "remote": "https://d8j0ntlcm91z4.cloudfront.net/user_3CIlOIVYyY7BGEQ6xUIoqXsPhYb/hf_20260728_184114_1f6cfb7a-6f1f-48af-9a38-e6a8f07ab68a.png" },
+      "grandad": { "local": "media/en/a1/u02-grandad.jpg", "remote": "https://d8j0ntlcm91z4.cloudfront.net/user_3CIlOIVYyY7BGEQ6xUIoqXsPhYb/hf_20260728_183703_1e16293f-a506-4d9f-97c6-0bb338a6dfe1.png" },
+      "nana": { "local": "media/en/a1/u02-nana.jpg", "remote": "https://d8j0ntlcm91z4.cloudfront.net/user_3CIlOIVYyY7BGEQ6xUIoqXsPhYb/hf_20260728_183708_0006c705-da86-4637-b9eb-3cf4f5f14de8.png" },
+      "tom": { "local": "media/en/a1/u02-tom.jpg", "remote": "https://d8j0ntlcm91z4.cloudfront.net/user_3CIlOIVYyY7BGEQ6xUIoqXsPhYb/hf_20260728_184017_e2803b0f-04a6-427d-a777-5d49b9ae6e0e.png" },
+      "rachel": { "local": "media/en/a1/u02-rachel.jpg", "remote": "https://d8j0ntlcm91z4.cloudfront.net/user_3CIlOIVYyY7BGEQ6xUIoqXsPhYb/hf_20260728_183646_3766c4e2-89c6-4fe1-8386-41018c60758b.png" },
+      "ollie": { "local": "media/en/a1/u02-ollie.jpg", "remote": "https://d8j0ntlcm91z4.cloudfront.net/user_3CIlOIVYyY7BGEQ6xUIoqXsPhYb/hf_20260728_183649_531cd012-8af4-4465-9b82-e947891934c5.png" },
+      "sophie": { "local": "media/en/a1/u02-sophie.jpg", "remote": "https://d8j0ntlcm91z4.cloudfront.net/user_3CIlOIVYyY7BGEQ6xUIoqXsPhYb/hf_20260728_183653_2f97398d-3e93-400c-bcde-62477009a8fa.png" },
+      "pepper": { "local": "media/en/a1/u02-pepper.jpg", "remote": "https://d8j0ntlcm91z4.cloudfront.net/user_3CIlOIVYyY7BGEQ6xUIoqXsPhYb/hf_20260728_183659_d52d5d8f-740e-45fe-ac06-f35d5c0fcc7e.png" }
+    },
+    "audio": {
+      "audio/01-story.mp3": { "local": "media/en/a1/u02-a01.mp3", "remote": "https://d8j0ntlcm91z4.cloudfront.net/user_3CIlOIVYyY7BGEQ6xUIoqXsPhYb/hf_20260728_183739_0fc048a8-85f0-49d6-9ca9-bcfb2d807b13.mp3" },
+      "audio/02-dialog.mp3": { "local": "media/en/a1/u02-a02.mp3", "remote": "https://d8j0ntlcm91z4.cloudfront.net/user_3CIlOIVYyY7BGEQ6xUIoqXsPhYb/hf_20260728_183743_f0316ac3-802b-4c93-b1e4-8d06663d64c0.mp3" },
+      "audio/03-family.mp3": { "local": "media/en/a1/u02-a03.mp3", "remote": "" },
+      "audio/05-plurals.mp3": { "local": "media/en/a1/u02-a04.mp3", "remote": "" }
+    }
+  },
+  "content": "content/en/a1/unit02.html",
+  "_NOTE": "Görsel ve ses üretimi tamamlandı (Higgsfield, 28 Tem 2026)."
+}
