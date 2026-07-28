@@ -667,6 +667,7 @@ function showAuthScreen() {
 }
 function hideAuthScreen() {
   $('#authScreen').classList.remove('on');
+  $('#homeScreen').classList.add('on');
 }
 (function () {
   var form = $('#authForm');
