@@ -6,6 +6,10 @@
 'use strict';
 
 var STORE = 'dw.v1';
+var AUTH_STORE = 'dw.auth';
+var GUEST_STORE = 'dw.guest';
+var pushTimer = null;
+var pushQueued = false;
 var CATALOG = null;
 var LANG = null;      // aktif dil nesnesi
 var LEVEL = null;     // aktif seviye nesnesi
@@ -30,6 +34,101 @@ function setUnitState(id, patch) {
   s.units = s.units || {};
   s.units[id] = Object.assign(unitState(id), patch);
   save(s);
+  schedulePush();
+}
+
+/* ---------------- Giriş & senkron ---------------- */
+function authLoad() {
+  try { return JSON.parse(localStorage.getItem(AUTH_STORE)) || null; } catch (e) { return null; }
+}
+function authSave(a) { try { localStorage.setItem(AUTH_STORE, JSON.stringify(a)); } catch (e) {} }
+function authClear() { try { localStorage.removeItem(AUTH_STORE); } catch (e) {} }
+function isGuest() { return localStorage.getItem(GUEST_STORE) === '1'; }
+function setGuest() { try { localStorage.setItem(GUEST_STORE, '1'); } catch (e) {} }
+function apiBase() { return (window.DW_API || '').replace(/\/+$/, ''); }
+
+function mergeUnitsClient(a, b) {
+  a = a || {}; b = b || {};
+  var out = {};
+  var ids = {};
+  Object.keys(a).forEach(function (k) { ids[k] = 1; });
+  Object.keys(b).forEach(function (k) { ids[k] = 1; });
+  Object.keys(ids).forEach(function (id) {
+    var x = a[id] || {}, y = b[id] || {};
+    var seenSet = {};
+    (x.seen || []).concat(y.seen || []).forEach(function (p) { seenSet[p] = 1; });
+    var seen = Object.keys(seenSet).map(Number);
+    var xHas = x.score != null, yHas = y.score != null;
+    var score = null, total = null;
+    if (xHas && yHas) { if (x.score >= y.score) { score = x.score; total = x.total; } else { score = y.score; total = y.total; } }
+    else if (xHas) { score = x.score; total = x.total; }
+    else if (yHas) { score = y.score; total = y.total; }
+    out[id] = { page: Math.max(x.page || 0, y.page || 0), seen: seen, score: score, total: total, done: !!(x.done || y.done) };
+  });
+  return out;
+}
+
+function pull() {
+  var auth = authLoad();
+  if (!auth || !apiBase()) return Promise.resolve();
+  return fetch(apiBase() + '/api/progress', { headers: { 'Authorization': 'Bearer ' + auth.token } })
+    .then(function (r) { if (!r.ok) throw new Error(r.status); return r.json(); })
+    .then(function (data) {
+      var s = load();
+      s.units = mergeUnitsClient(s.units || {}, data.units || {});
+      save(s);
+    })
+    .catch(function () {});
+}
+
+function push() {
+  var auth = authLoad();
+  if (!auth || !apiBase()) return;
+  var s = load();
+  fetch(apiBase() + '/api/progress', {
+    method: 'PUT',
+    headers: { 'Content-Type': 'application/json', 'Authorization': 'Bearer ' + auth.token },
+    body: JSON.stringify({ units: s.units || {} }),
+  }).then(function (r) {
+    if (!r.ok) throw new Error(r.status);
+    return r.json();
+  }).then(function (data) {
+    pushQueued = false;
+    var s2 = load();
+    s2.units = mergeUnitsClient(s2.units || {}, data.units || {});
+    save(s2);
+  }).catch(function () { pushQueued = true; });
+}
+
+function schedulePush() {
+  if (!authLoad() || !apiBase()) return;
+  clearTimeout(pushTimer);
+  pushTimer = setTimeout(push, 3000);
+}
+
+window.addEventListener('online', function () { if (pushQueued) push(); });
+
+function login(name, pin) {
+  return fetch(apiBase() + '/api/login', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ name: name, pin: pin }),
+  }).then(function (r) {
+    return r.json().then(function (data) { return { ok: r.ok, data: data }; });
+  }).then(function (res) {
+    if (!res.ok) throw new Error(res.data && res.data.error || 'Giriş başarısız');
+    authSave({ token: res.data.token, name: res.data.name });
+    var s = load();
+    s.units = mergeUnitsClient(s.units || {}, res.data.units || {});
+    save(s);
+    return res.data;
+  });
+}
+
+function logout() {
+  authClear();
+  try { localStorage.removeItem(GUEST_STORE); } catch (e) {}
+  save({});
 }
 
 /* ---------------- Hilfsmittel ---------------- */
@@ -372,6 +471,17 @@ function renderHome() {
   $('#prog').style.width = '0';
   $('#verLabel').textContent = 'v' + CATALOG.app.version;
 
+  var auth = authLoad();
+  var badge = $('#userBadge'), logoutBtn = $('#logoutBtn');
+  if (auth) {
+    badge.textContent = auth.name;
+    badge.hidden = false;
+    logoutBtn.hidden = false;
+  } else {
+    badge.hidden = true;
+    logoutBtn.hidden = true;
+  }
+
   // Sprachreiter
   var tabs = $('#langTabs'); tabs.innerHTML = '';
   CATALOG.languages.forEach(function (l) {
@@ -543,8 +653,57 @@ $('#aboutBtn').onclick = function () {
   toast('Deutsch, wieder… · Vorwärts ruhundan ilhamla, kişisel kullanım için');
 };
 
+$('#logoutBtn').onclick = function () {
+  if (!confirm('Çıkış yapılacak ve bu cihazdaki yerel ilerleme silinecek. Emin misiniz?')) return;
+  logout();
+  location.reload();
+};
+
+/* ---------------- Giriş ekranı verdirmesi ---------------- */
+function showAuthScreen() {
+  $('#homeScreen').classList.remove('on');
+  $('#readerScreen').classList.remove('on');
+  $('#authScreen').classList.add('on');
+}
+function hideAuthScreen() {
+  $('#authScreen').classList.remove('on');
+}
+(function () {
+  var form = $('#authForm');
+  if (!form) return;
+  form.addEventListener('submit', function (e) {
+    e.preventDefault();
+    var name = $('#authName').value.trim();
+    var pin = $('#authPin').value.trim();
+    var errBox = $('#authErr');
+    errBox.hidden = true;
+    if (!name || !/^\d{4}$/.test(pin)) {
+      errBox.textContent = 'Ad ve 4 haneli PIN gerekli.';
+      errBox.hidden = false;
+      return;
+    }
+    var btn = $('#authSubmit');
+    btn.disabled = true; btn.textContent = 'Bağlanıyor…';
+    login(name, pin).then(function () {
+      hideAuthScreen();
+      startApp();
+    }).catch(function (e) {
+      errBox.textContent = e.message || 'Giriş başarısız';
+      errBox.hidden = false;
+    }).finally(function () {
+      btn.disabled = false; btn.textContent = 'Devam et';
+    });
+  });
+  $('#authSkip').onclick = function () {
+    setGuest();
+    hideAuthScreen();
+    startApp();
+  };
+})();
+
 /* ---------------- Start ---------------- */
-function boot() {
+function startApp() {
+  pull().then(function () {
   fetch('content/catalog.json').then(function (r) { return r.json(); }).then(function (cat) {
     CATALOG = cat;
     LANG = cat.languages[0];
@@ -578,6 +737,16 @@ function boot() {
       'GitHub Pages adresinden ya da yerel bir sunucudan açın.</p>' +
       '<p class="lede" style="color:var(--ink-3);font-size:13px">' + esc(String(err)) + '</p></div>';
   });
+  });
+}
+
+function boot() {
+  var auth = authLoad();
+  if (apiBase() && !auth && !isGuest()) {
+    showAuthScreen();
+    return;
+  }
+  startApp();
 }
 
 if ('serviceWorker' in navigator) {
