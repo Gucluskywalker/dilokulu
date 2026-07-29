@@ -1,7 +1,7 @@
 /* Yes We Do Learning (YWDL) — Service Worker
    Kabuk önceden önbelleğe alınır; içerik ve medya kullanıldıkça saklanır. */
 
-const VERSION = 'ywdl-v1.11.0';
+const VERSION = 'ywdl-v1.12.0';
 const SHELL = VERSION + '-shell';
 const DATA  = VERSION + '-data';
 const MEDIA = VERSION + '-media';
@@ -68,6 +68,23 @@ self.addEventListener('fetch', e => {
   if (req.mode === 'navigate') {
     e.respondWith(
       fetch(req).catch(() => caches.match('./index.html'))
+    );
+    return;
+  }
+
+  // Kritik önyükleme dosyaları (catalog.json, app.js/css, index.html, manifest):
+  // ÖNCE AĞ, olmazsa önbelleğe düş. Bu dosyalar küçük ve sık değişebilir —
+  // eski/bozuk bir önbellek kopuğunun kalıcı olarak takılı kalmasını engeller.
+  const isCritical = SHELL_FILES.some(f => url.pathname.endsWith(f.replace('./', '/')));
+  if (isCritical) {
+    e.respondWith(
+      fetch(req).then(res => {
+        if (res && res.ok) {
+          const copy = res.clone();
+          caches.open(bucketFor(url)).then(c => c.put(req, copy));
+        }
+        return res;
+      }).catch(() => caches.match(req))
     );
     return;
   }
