@@ -159,18 +159,21 @@ function wireAudio(root, media) {
   $$('.audiobar', root).forEach(function (bar) {
     var rec = (media.audio && media.audio[bar.dataset.src]) || null;
     var pl = $('.pl', bar), st = $('.st', bar), fill = $('.track i', bar), rate = $('.rate', bar);
-    var a = new Audio(); a.preload = 'none';
-    var triedRemote = false, dead = false, wantsPlay = false;
+    var a = new Audio();
+    // Safari, play() çağrısının kullanıcı tıklamasıyla AYNI anda (senkron) yapılmasını
+    // ister; tıklamadan sonra bir hata/geri dönüş zincirinden geçerse sessizce engeller.
+    // Bu yüzden burada, sayfa açılır açılmaz (kullanıcı tıklamadan ÖNCE) hangi adresin
+    // (local mı, remote mi) çalıştığını belirleyip a.src'yi ona sabitliyoruz — tıklama
+    // anında yapılan tek şey doğrudan play() çağrısı oluyor.
+    a.preload = 'metadata';
+    var triedRemote = false, dead = false;
 
     if (!rec) { dead = true; bar.classList.add('miss'); st.textContent = 'Ses dosyası tanımsız'; }
-    else a.src = rec.local;
+    else { a.src = rec.local; a.load(); }
 
     a.addEventListener('error', function () {
       if (rec && rec.remote && !triedRemote) {
         triedRemote = true; a.src = rec.remote; a.load();
-        if (wantsPlay) {
-          a.play().then(function () { pl.innerHTML = S_ICO; }).catch(function () {});
-        }
         return;
       }
       dead = true; bar.classList.add('miss');
@@ -184,15 +187,23 @@ function wireAudio(root, media) {
       st.textContent = fmt(a.currentTime) + ' / ' + fmt(a.duration);
       fill.style.width = (a.currentTime / a.duration * 100) + '%';
     });
-    a.addEventListener('ended', function () { pl.innerHTML = P_ICO; fill.style.width = '0'; wantsPlay = false; });
+    a.addEventListener('ended', function () { pl.innerHTML = P_ICO; fill.style.width = '0'; });
 
     pl.onclick = function () {
       if (dead) return;
       if (a.paused) {
         AUDIOS.forEach(function (o) { o.pause(); });
-        wantsPlay = true;
-        a.play().then(function () { pl.innerHTML = S_ICO; }).catch(function () {});
-      } else { a.pause(); pl.innerHTML = P_ICO; wantsPlay = false; }
+        var p = a.play();
+        if (p && p.then) {
+          p.then(function () { pl.innerHTML = S_ICO; }).catch(function () {
+            // Safari bazen ilk denemede reddeder (kaynak henüz tam hazır değilse);
+            // aynı tıklama içinde değiliz ama bir kez daha deneyip kullanıcıya
+            // net bir geri bildirim veriyoruz.
+            st.textContent = 'Oynatılamadı — tekrar deneyin';
+          });
+        }
+        pl.innerHTML = S_ICO;
+      } else { a.pause(); pl.innerHTML = P_ICO; }
     };
     if (rate) {
       var rs = [1, .75, .5, 1.25], ri = 0;
