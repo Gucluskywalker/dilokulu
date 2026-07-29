@@ -2,7 +2,7 @@
   "app": {
     "name": "Yes We Do Learning",
     "shortName": "YWDL",
-    "version": "1.6.0"
+    "version": "1.11.0"
   },
   "languages": [
     {
@@ -62,6 +62,33 @@
             {
               "n": 4,
               "meta": "content/en/a1/unit04.json"
+            }
+          ]
+        },
+        {
+          "code": "a2",
+          "name": "A2",
+          "tr": "Orta-Altı",
+          "units": [
+            {
+              "n": 1,
+              "meta": "content/en/a2/unit01.json"
+            },
+            {
+              "n": 2,
+              "meta": "content/en/a2/unit02.json"
+            },
+            {
+              "n": 3,
+              "meta": "content/en/a2/unit03.json"
+            },
+            {
+              "n": 4,
+              "meta": "content/en/a2/unit04.json"
+            },
+            {
+              "n": 5,
+              "meta": "content/en/a2/unit05.json"
             }
           ]
         }
