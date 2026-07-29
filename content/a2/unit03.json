@@ -1,0 +1,45 @@
+{
+  "id": "en-a2-u03",
+  "number": 3,
+  "title": "Summer in Cornwall",
+  "subtitle": "Past continuous · used to · Question tags · Phrasal verbs",
+  "tr": "Geçmişte devam eden eylem, geçmiş alışkanlık, soru ekleri ve fiil+edat kalıpları",
+  "testPoints": 22,
+  "cover": "cover",
+  "pages": [
+    { "t": "Opening", "s": "Goals · Off to Cornwall" },
+    { "t": "The Story", "s": "Arriving in Cornwall · Reading comprehension" },
+    { "t": "Vocabulary 1", "s": "Seaside &amp; weather · Fishing" },
+    { "t": "Grammar 1", "s": "Past continuous" },
+    { "t": "Grammar 2", "s": "Past continuous vs past simple" },
+    { "t": "Vocabulary 2", "s": "used to" },
+    { "t": "Dialogue", "s": "Fish and Chips by the Harbour · Listening" },
+    { "t": "Grammar 3", "s": "Question tags" },
+    { "t": "Grammar 4", "s": "Phrasal verbs — introduction" },
+    { "t": "Grammar 5", "s": "Mixed review — past tenses" },
+    { "t": "Speaking &amp; Writing", "s": "Production · Culture window" },
+    { "t": "Review &amp; Test", "s": "Summary · Mini-test" }
+  ],
+  "media": {
+    "img": {
+      "cover": { "local": "media/en/a2/u03-cover.jpg", "remote": "https://d8j0ntlcm91z4.cloudfront.net/user_3CIlOIVYyY7BGEQ6xUIoqXsPhYb/hf_20260729_144923_56c5ad9f-4de3-475d-bf5c-fa1ad0fffcab.png" },
+      "story": { "local": "media/en/a2/u03-story.jpg", "remote": "https://d8j0ntlcm91z4.cloudfront.net/user_3CIlOIVYyY7BGEQ6xUIoqXsPhYb/hf_20260729_144927_86b4a640-8ae1-47e0-87af-5e91e7cc9366.png" },
+      "seaside": { "local": "media/en/a2/u03-seaside.jpg", "remote": "https://d8j0ntlcm91z4.cloudfront.net/user_3CIlOIVYyY7BGEQ6xUIoqXsPhYb/hf_20260729_144930_a6b1db6f-fdbc-4158-8b5c-250f63e0067d.png" },
+      "dialogue": { "local": "media/en/a2/u03-dialogue.jpg", "remote": "https://d8j0ntlcm91z4.cloudfront.net/user_3CIlOIVYyY7BGEQ6xUIoqXsPhYb/hf_20260729_144938_86c06c00-10dd-408f-85c2-218e6803c499.png" },
+      "culture": { "local": "media/en/a2/u03-culture.jpg", "remote": "https://d8j0ntlcm91z4.cloudfront.net/user_3CIlOIVYyY7BGEQ6xUIoqXsPhYb/hf_20260729_144941_3e2380fd-0bc7-4965-a9d5-c2c0596f4be1.png" },
+      "bill": { "local": "media/en/a2/u03-bill.jpg", "remote": "https://d8j0ntlcm91z4.cloudfront.net/user_3CIlOIVYyY7BGEQ6xUIoqXsPhYb/hf_20260729_144825_5c377bc4-cc81-483a-9c03-03cad94c73ad.png" },
+      "pat": { "local": "media/en/a2/u03-pat.jpg", "remote": "https://d8j0ntlcm91z4.cloudfront.net/user_3CIlOIVYyY7BGEQ6xUIoqXsPhYb/hf_20260729_144841_7cca2e3e-6fd3-45b3-841f-9e8fb2b30a9c.png" },
+      "tom": { "local": "media/en/a1/u01-tom.jpg", "remote": "https://d8j0ntlcm91z4.cloudfront.net/user_3CIlOIVYyY7BGEQ6xUIoqXsPhYb/hf_20260728_184017_e2803b0f-04a6-427d-a777-5d49b9ae6e0e.png" },
+      "rachel": { "local": "media/en/a1/u01-rachel.jpg", "remote": "https://d8j0ntlcm91z4.cloudfront.net/user_3CIlOIVYyY7BGEQ6xUIoqXsPhYb/hf_20260728_183646_3766c4e2-89c6-4fe1-8386-41018c60758b.png" },
+      "sophie": { "local": "media/en/a1/u01-sophie.jpg", "remote": "https://d8j0ntlcm91z4.cloudfront.net/user_3CIlOIVYyY7BGEQ6xUIoqXsPhYb/hf_20260728_183653_2f97398d-3e93-400c-bcde-62477009a8fa.png" },
+      "pepper": { "local": "media/en/a1/u01-pepper.jpg", "remote": "https://d8j0ntlcm91z4.cloudfront.net/user_3CIlOIVYyY7BGEQ6xUIoqXsPhYb/hf_20260728_183659_d52d5d8f-740e-45fe-ac06-f35d5c0fcc7e.png" }
+    },
+    "audio": {
+      "audio/01-story.mp3": { "local": "media/en/a2/u03-a01.mp3", "remote": "https://d8j0ntlcm91z4.cloudfront.net/user_3CIlOIVYyY7BGEQ6xUIoqXsPhYb/hf_20260729_145105_421c7eda-2a66-467c-9814-ec585d9df366.mp3" },
+      "audio/02-dialog.mp3": { "local": "media/en/a2/u03-a02.mp3", "remote": "https://d8j0ntlcm91z4.cloudfront.net/user_3CIlOIVYyY7BGEQ6xUIoqXsPhYb/hf_20260729_145204_3be9cec1-7f31-4cd8-afa9-8651b2ebae7a.mp3" },
+      "audio/05-vocabulary.mp3": { "local": "media/en/a2/u03-a05.mp3", "remote": "https://d8j0ntlcm91z4.cloudfront.net/user_3CIlOIVYyY7BGEQ6xUIoqXsPhYb/hf_20260729_145257_2fe83f6f-92ef-4d9d-b26f-828b03c60236.mp3" }
+    }
+  },
+  "content": "content/en/a2/unit03.html",
+  "_NOTE": "Tamamlandı (29 Tem 2026): içerik, 7 görsel (Bill & Pat'in ilk portreleri dahil) ve 3 ses track'i üretildi, tüm remote alanları dolu. Bill job id: 5c377bc4-cc81-483a-9c03-03cad94c73ad, Pat job id: 7cca2e3e-6fd3-45b3-841f-9e8fb2b30a9c — sonraki ünitelerde referans olarak kullanılabilir."
+}

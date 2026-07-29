@@ -1,0 +1,45 @@
+{
+  "id": "en-a2-u04",
+  "number": 4,
+  "title": "Plans and Dreams",
+  "subtitle": "going to / will · Present continuous for future · First conditional · must/have to/should",
+  "tr": "Gelecek zaman kalıpları, gerçek koşul cümleleri, zorunluluk ve tavsiye modalları",
+  "testPoints": 22,
+  "cover": "cover",
+  "pages": [
+    { "t": "Opening", "s": "Goals · Sophie's Big Decision" },
+    { "t": "The Story", "s": "What Are You Going to Do? · Reading comprehension" },
+    { "t": "Vocabulary 1", "s": "Education &amp; future paths" },
+    { "t": "Grammar 1", "s": "going to" },
+    { "t": "Grammar 2", "s": "will · Present continuous for future" },
+    { "t": "Dialogue", "s": "Sophie and Priya's Plans · Listening" },
+    { "t": "Grammar 3", "s": "First conditional" },
+    { "t": "Grammar 4", "s": "must / have to / should / needn't" },
+    { "t": "Grammar 5", "s": "Mixed review — future &amp; modals" },
+    { "t": "Vocabulary 2", "s": "Talking about the future" },
+    { "t": "Speaking &amp; Writing", "s": "Production · Culture window" },
+    { "t": "Review &amp; Test", "s": "Summary · Mini-test" }
+  ],
+  "media": {
+    "img": {
+      "cover": { "local": "media/en/a2/u04-cover.jpg", "remote": "https://d8j0ntlcm91z4.cloudfront.net/user_3CIlOIVYyY7BGEQ6xUIoqXsPhYb/hf_20260729_150126_63857976-d18c-4162-98a7-269ff60d2518.png" },
+      "story": { "local": "media/en/a2/u04-story.jpg", "remote": "https://d8j0ntlcm91z4.cloudfront.net/user_3CIlOIVYyY7BGEQ6xUIoqXsPhYb/hf_20260729_150133_d839158d-14f0-47e7-89c1-200f4a4f9605.png" },
+      "paths": { "local": "media/en/a2/u04-paths.jpg", "remote": "https://d8j0ntlcm91z4.cloudfront.net/user_3CIlOIVYyY7BGEQ6xUIoqXsPhYb/hf_20260729_150137_234e9b25-b3b6-459a-bf25-6441277db599.png" },
+      "dialogue": { "local": "media/en/a2/u04-dialogue.jpg", "remote": "https://d8j0ntlcm91z4.cloudfront.net/user_3CIlOIVYyY7BGEQ6xUIoqXsPhYb/hf_20260729_150141_f0f617c0-e7d0-41cf-8993-7ba49d22f9e6.png" },
+      "culture": { "local": "media/en/a2/u04-culture.jpg", "remote": "https://d8j0ntlcm91z4.cloudfront.net/user_3CIlOIVYyY7BGEQ6xUIoqXsPhYb/hf_20260729_150144_9dae4e6d-58cb-4edd-bdf7-12f0bc2ea38e.png" },
+      "priya": { "local": "media/en/a2/u04-priya.jpg", "remote": "https://d8j0ntlcm91z4.cloudfront.net/user_3CIlOIVYyY7BGEQ6xUIoqXsPhYb/hf_20260729_145938_0ffd32b2-2d46-45ca-85a1-e69eaa7d47b4.png" },
+      "tom": { "local": "media/en/a1/u01-tom.jpg", "remote": "https://d8j0ntlcm91z4.cloudfront.net/user_3CIlOIVYyY7BGEQ6xUIoqXsPhYb/hf_20260728_184017_e2803b0f-04a6-427d-a777-5d49b9ae6e0e.png" },
+      "rachel": { "local": "media/en/a1/u01-rachel.jpg", "remote": "https://d8j0ntlcm91z4.cloudfront.net/user_3CIlOIVYyY7BGEQ6xUIoqXsPhYb/hf_20260728_183646_3766c4e2-89c6-4fe1-8386-41018c60758b.png" },
+      "sophie": { "local": "media/en/a1/u01-sophie.jpg", "remote": "https://d8j0ntlcm91z4.cloudfront.net/user_3CIlOIVYyY7BGEQ6xUIoqXsPhYb/hf_20260728_183653_2f97398d-3e93-400c-bcde-62477009a8fa.png" },
+      "ollie": { "local": "media/en/a1/u01-ollie.jpg", "remote": "https://d8j0ntlcm91z4.cloudfront.net/user_3CIlOIVYyY7BGEQ6xUIoqXsPhYb/hf_20260728_183649_531cd012-8af4-4465-9b82-e947891934c5.png" },
+      "pepper": { "local": "media/en/a1/u01-pepper.jpg", "remote": "https://d8j0ntlcm91z4.cloudfront.net/user_3CIlOIVYyY7BGEQ6xUIoqXsPhYb/hf_20260728_183659_d52d5d8f-740e-45fe-ac06-f35d5c0fcc7e.png" }
+    },
+    "audio": {
+      "audio/01-story.mp3": { "local": "media/en/a2/u04-a01.mp3", "remote": "https://d8j0ntlcm91z4.cloudfront.net/user_3CIlOIVYyY7BGEQ6xUIoqXsPhYb/hf_20260729_150334_8bb75304-7f85-49f8-9475-a26642c83403.mp3" },
+      "audio/02-dialog.mp3": { "local": "media/en/a2/u04-a02.mp3", "remote": "https://d8j0ntlcm91z4.cloudfront.net/user_3CIlOIVYyY7BGEQ6xUIoqXsPhYb/hf_20260729_150439_fb6712b7-8133-42ac-82da-c13c180c6e3c.mp3" },
+      "audio/05-vocabulary.mp3": { "local": "media/en/a2/u04-a05.mp3", "remote": "https://d8j0ntlcm91z4.cloudfront.net/user_3CIlOIVYyY7BGEQ6xUIoqXsPhYb/hf_20260729_150531_c1dbb987-b4df-4356-aa60-2c1a00ace879.mp3" }
+    }
+  },
+  "content": "content/en/a2/unit04.html",
+  "_NOTE": "Tamamlandı (29 Tem 2026): içerik, 6 görsel (Priya'nın ilk portresi dahil, job id 0ffd32b2-2d46-45ca-85a1-e69eaa7d47b4) ve 3 ses track'i üretildi, tüm remote alanları dolu."
+}

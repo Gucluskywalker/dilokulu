@@ -1,0 +1,45 @@
+{
+  "id": "en-a2-u02",
+  "number": 2,
+  "title": "Ollie's Year in Manchester",
+  "subtitle": "Present perfect · ever/never/just/already/yet · for/since · Comparatives &amp; superlatives",
+  "tr": "Present perfect, deneyim zarfları, for/since, karşılaştırma ve üstünlük dereceleri",
+  "testPoints": 52,
+  "cover": "cover",
+  "pages": [
+    { "t": "Opening", "s": "Goals · Ollie Comes Home" },
+    { "t": "The Story", "s": "Welcome Home, Ollie · Reading comprehension" },
+    { "t": "Vocabulary 1", "s": "University life · City adjectives" },
+    { "t": "Grammar 1", "s": "Present perfect — have/has + past participle" },
+    { "t": "Grammar 2", "s": "just/already/yet · for/since" },
+    { "t": "Vocabulary 2", "s": "Present perfect vs past simple" },
+    { "t": "Dialogue", "s": "Bristol or Manchester? · Listening" },
+    { "t": "Grammar 3", "s": "Comparatives" },
+    { "t": "Grammar 4", "s": "Superlatives" },
+    { "t": "Grammar 5", "s": "Have you ever…? · Mixed review" },
+    { "t": "Speaking &amp; Writing", "s": "Production · Culture window" },
+    { "t": "Review &amp; Test", "s": "Summary · Mini-test" }
+  ],
+  "media": {
+    "img": {
+      "cover": { "local": "media/en/a2/u02-cover.jpg", "remote": "https://d8j0ntlcm91z4.cloudfront.net/user_3CIlOIVYyY7BGEQ6xUIoqXsPhYb/hf_20260729_142836_0d536e93-580c-4eb5-ac19-6046684ee04b.png" },
+      "story": { "local": "media/en/a2/u02-story.jpg", "remote": "https://d8j0ntlcm91z4.cloudfront.net/user_3CIlOIVYyY7BGEQ6xUIoqXsPhYb/hf_20260729_142839_0f31b329-0820-4e0e-af51-a511b1ab00f5.png" },
+      "university": { "local": "media/en/a2/u02-university.jpg", "remote": "https://d8j0ntlcm91z4.cloudfront.net/user_3CIlOIVYyY7BGEQ6xUIoqXsPhYb/hf_20260729_142845_c46bc9b4-c8cf-4266-b2cf-f56987f522e2.png" },
+      "dialogue": { "local": "media/en/a2/u02-dialogue.jpg", "remote": "https://d8j0ntlcm91z4.cloudfront.net/user_3CIlOIVYyY7BGEQ6xUIoqXsPhYb/hf_20260729_142849_fa189b5f-9cb6-4e18-8a78-03fb94a9d617.png" },
+      "culture": { "local": "media/en/a2/u02-culture.jpg", "remote": "https://d8j0ntlcm91z4.cloudfront.net/user_3CIlOIVYyY7BGEQ6xUIoqXsPhYb/hf_20260729_142852_cc09cfd5-bfb2-43cf-959b-4f0c87143628.png" },
+      "tom": { "local": "media/en/a1/u01-tom.jpg", "remote": "https://d8j0ntlcm91z4.cloudfront.net/user_3CIlOIVYyY7BGEQ6xUIoqXsPhYb/hf_20260728_184017_e2803b0f-04a6-427d-a777-5d49b9ae6e0e.png" },
+      "rachel": { "local": "media/en/a1/u01-rachel.jpg", "remote": "https://d8j0ntlcm91z4.cloudfront.net/user_3CIlOIVYyY7BGEQ6xUIoqXsPhYb/hf_20260728_183646_3766c4e2-89c6-4fe1-8386-41018c60758b.png" },
+      "ollie": { "local": "media/en/a1/u01-ollie.jpg", "remote": "https://d8j0ntlcm91z4.cloudfront.net/user_3CIlOIVYyY7BGEQ6xUIoqXsPhYb/hf_20260728_183649_531cd012-8af4-4465-9b82-e947891934c5.png" },
+      "sophie": { "local": "media/en/a1/u01-sophie.jpg", "remote": "https://d8j0ntlcm91z4.cloudfront.net/user_3CIlOIVYyY7BGEQ6xUIoqXsPhYb/hf_20260728_183653_2f97398d-3e93-400c-bcde-62477009a8fa.png" },
+      "pepper": { "local": "media/en/a1/u01-pepper.jpg", "remote": "https://d8j0ntlcm91z4.cloudfront.net/user_3CIlOIVYyY7BGEQ6xUIoqXsPhYb/hf_20260728_183659_d52d5d8f-740e-45fe-ac06-f35d5c0fcc7e.png" },
+      "marcus": { "local": "media/en/a2/u02-marcus.jpg", "remote": "https://d8j0ntlcm91z4.cloudfront.net/user_3CIlOIVYyY7BGEQ6xUIoqXsPhYb/hf_20260729_142731_839878cc-e707-4e90-bd77-ce5bc836cd9b.png" }
+    },
+    "audio": {
+      "audio/01-story.mp3": { "local": "media/en/a2/u02-a01.mp3", "remote": "https://d8j0ntlcm91z4.cloudfront.net/user_3CIlOIVYyY7BGEQ6xUIoqXsPhYb/hf_20260729_143047_bb862835-52f4-4501-9605-ca2c4d640d38.mp3" },
+      "audio/02-dialog.mp3": { "local": "media/en/a2/u02-a02.mp3", "remote": "https://d8j0ntlcm91z4.cloudfront.net/user_3CIlOIVYyY7BGEQ6xUIoqXsPhYb/hf_20260729_143200_8bc66210-f085-40b4-a224-ba653cbcbbd1.mp3" },
+      "audio/05-vocabulary.mp3": { "local": "media/en/a2/u02-a05.mp3", "remote": "https://d8j0ntlcm91z4.cloudfront.net/user_3CIlOIVYyY7BGEQ6xUIoqXsPhYb/hf_20260729_143311_6edc8f28-2157-4825-8d86-26bc4fdce02b.mp3" }
+    }
+  },
+  "content": "content/en/a2/unit02.html",
+  "_NOTE": "Tamamlandı (29 Tem 2026): içerik, 6 görsel (Marcus'un ilk portresi dahil) ve 3 ses track'i üretildi, tüm remote alanları dolu. Marcus job id'si: 839878cc-e707-4e90-bd77-ce5bc836cd9b — sonraki ünitelerde referans olarak kullanılabilir. Sıradaki iş: Unit 3."
+}
