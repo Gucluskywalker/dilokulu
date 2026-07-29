@@ -33,8 +33,8 @@
       "sophie": { "local": "media/en/a1/u04-sophie.jpg", "remote": "https://d8j0ntlcm91z4.cloudfront.net/user_3CIlOIVYyY7BGEQ6xUIoqXsPhYb/hf_20260728_183653_2f97398d-3e93-400c-bcde-62477009a8fa.png" }
     },
     "audio": {
-      "audio/01-story.mp3": { "local": "media/en/a1/u04-a01.mp3", "remote": "https://d8j0ntlcm91z4.cloudfront.net/user_3CIlOIVYyY7BGEQ6xUIoqXsPhYb/hf_20260728_183822_9413a7e1-d4ce-47b3-8007-d9a00f049136.mp3" },
-      "audio/02-dialog.mp3": { "local": "media/en/a1/u04-a02.mp3", "remote": "https://d8j0ntlcm91z4.cloudfront.net/user_3CIlOIVYyY7BGEQ6xUIoqXsPhYb/hf_20260728_183831_e397b61a-629d-4838-9f56-93e0972402bb.mp3" },
+      "audio/01-story.mp3": { "local": "media/en/a1/u04-a01.mp3", "remote": "https://d8j0ntlcm91z4.cloudfront.net/user_3CIlOIVYyY7BGEQ6xUIoqXsPhYb/hf_20260729_081941_ce6ef47a-bc96-478e-8dcc-3896cf88ac04.mp3" },
+      "audio/02-dialog.mp3": { "local": "media/en/a1/u04-a02.mp3", "remote": "https://d8j0ntlcm91z4.cloudfront.net/user_3CIlOIVYyY7BGEQ6xUIoqXsPhYb/hf_20260729_081944_cab3a026-04a8-413b-83f1-4211d3ab14ec.mp3" },
       "audio/03-food.mp3": { "local": "media/en/a1/u04-a03.mp3", "remote": "" }
     }
   },

@@ -36,8 +36,8 @@
       "pepper": { "local": "media/en/a1/u03-pepper.jpg", "remote": "https://d8j0ntlcm91z4.cloudfront.net/user_3CIlOIVYyY7BGEQ6xUIoqXsPhYb/hf_20260728_183659_d52d5d8f-740e-45fe-ac06-f35d5c0fcc7e.png" }
     },
     "audio": {
-      "audio/01-story.mp3": { "local": "media/en/a1/u03-a01.mp3", "remote": "https://d8j0ntlcm91z4.cloudfront.net/user_3CIlOIVYyY7BGEQ6xUIoqXsPhYb/hf_20260728_183746_cfcd3c4b-ed73-4116-be6b-ae875b9ff284.mp3" },
-      "audio/02-dialog.mp3": { "local": "media/en/a1/u03-a02.mp3", "remote": "https://d8j0ntlcm91z4.cloudfront.net/user_3CIlOIVYyY7BGEQ6xUIoqXsPhYb/hf_20260728_183749_6c2e40f4-4bbb-4310-ac16-12293d1a6643.mp3" },
+      "audio/01-story.mp3": { "local": "media/en/a1/u03-a01.mp3", "remote": "https://d8j0ntlcm91z4.cloudfront.net/user_3CIlOIVYyY7BGEQ6xUIoqXsPhYb/hf_20260729_081934_54a1da83-5656-4849-909a-2338b6814415.mp3" },
+      "audio/02-dialog.mp3": { "local": "media/en/a1/u03-a02.mp3", "remote": "https://d8j0ntlcm91z4.cloudfront.net/user_3CIlOIVYyY7BGEQ6xUIoqXsPhYb/hf_20260729_081937_4183b862-7462-4689-9eb3-e068b5ac1722.mp3" },
       "audio/03-time.mp3": { "local": "media/en/a1/u03-a03.mp3", "remote": "" },
       "audio/04-routine.mp3": { "local": "media/en/a1/u03-a04.mp3", "remote": "" }
     }
